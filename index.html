@@ -1,12 +1,14 @@
 <html>
 
   <body>
-    <h2>Motståndarens Hälsa <span id="motståndarens-hälsa"></span> </h2>
-    <h2>Din Hälsa <span id="din-hälsa"></span></h2>
-    <button id="arrow" onclick="pil()">Arrow</button>
-    <button id="fire" onclick="eld()">Fire Arrow</button>
-    <button id="rain" onclick="regn()">Rain of arrows</button>
-    <button id="cold"onclick="köld()">Cold Arrow</button>
+    <h2>Enemy hp <span id="enemy-hp"></span> </h2>
+    <h2>Player hp <span id="player-hp"></span></h2>
+    <button id="attack1" onclick="attackFunction1()">Arrow</button>
+    <button id="attack2" onclick="attackFunction2()">Fire Arrow</button>
+    <button id="attack3" onclick="attackFunction3()">Rain of arrows</button>
+    <button id="attack4" onclick="attackFunction4()">Cold Arrow</button>
+
+    <h2 id="msgToPlayer"> </h2>
   </body>
 
   <script src="fight.js"></script>

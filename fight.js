@@ -1,93 +1,102 @@
-let spelare = {
+let player = {
   hp: 100,
-  skada: 10
+  dmg: 10
 }
 
-let motståndare = {
+let enemy = {
   hp: 110,
-  skada: 10
+  dmg: 10
 }
 
 //arrow-button fire-arrow-button rain-of-arrow-button cold-arrow-button
 
-let arrow1 = 0;
-let arrow2 = 0;
-let arrow3 = 0;
-let arrow4 = 0;
+let attack1 =  document.getElementById('attack1');
+let attack2 = document.getElementById('attack2');
+let attack3 = document.getElementById('attack3');
+let attack4 = document.getElementById('attack4');
 
-  const pil = () => {
-    arrow1 = document.getElementById('arrow');
-    arrow2 = document.getElementById('fire');
-    arrow3 = document.getElementById('rain');
-    arrow4 = document.getElementById('cold');
+  const attackFunction1 = () => {
+    let messageToPlayer = document.getElementById('msgToPlayer');
 
-    let spelareAttack = Math.floor(Math.random()  * spelare.skada + 5);
-    console.log(spelareAttack);
-    motståndare.hp -= spelareAttack;
+    let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
+    console.log(playerAttack);
+    enemy.hp -= playerAttack;
     printToScreen();
-      arrow1.disabled = true;
-      arrow2.disabled = true;
-      arrow3.disabled = true;
-      arrow4.disabled = true;
+      attack1.disabled = true;
+      attack2.disabled = true;
+      attack3.disabled = true;
+      attack4.disabled = true;
+      messageToPlayer.innerText = "Opponent is about to strike";
+      //messageToPlayer.innerText = "Opponent strike you for "+ motståndare.skada +" damage";
+      //setTimeout(() => )
 
   }
-  const eld = () => {
-    arrow1 = document.getElementById('arrow');
-    arrow2 = document.getElementById('fire');
-    arrow3 = document.getElementById('rain');
-    arrow4 = document.getElementById('cold');
+  const attackFunction2 = () => {
+    let messageToPlayer = document.getElementById('msgToPlayer');
 
-    let spelareAttack = Math.floor(Math.random()  * spelare.skada);
-    console.log(spelareAttack);
-    motståndare.hp -= spelareAttack;
+    let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
+    console.log(playerAttack);
+    enemy.hp -= playerAttack;
     printToScreen();
-      arrow1.disabled = true;
-      arrow2.disabled = true;
-      arrow3.disabled = true;
-      arrow4.disabled = true;
+      attack1.disabled = true;
+      /*attack2.disabled = true;
+      attack3.disabled = true;
+      attack4.disabled = true;*/
+      messageToPlayer.innerText = "Opponent is about to strike";
+      //messageToPlayer.innerText = "Opponent strike you for "+ motståndare.skada +" damage";
+      //setTimeout(() => )
+  }
+  const attackFunction3 = () => {
+    let messageToPlayer = document.getElementById('msgToPlayer');
+
+    let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
+    console.log(playerAttack);
+    enemy.hp -= playerAttack;
+    printToScreen();
+      attack1.disabled = true;
+      /*attack2.disabled = true;
+      attack3.disabled = true;
+      attack4.disabled = true;*/
+      messageToPlayer.innerText = "Opponent is about to strike";
+      //messageToPlayer.innerText = "Opponent strike you for "+ motståndare.skada +" damage";
+      //setTimeout(() => )
 
   }
-  const regn = () => {
-    arrow1 = document.getElementById('arrow');
-    arrow2 = document.getElementById('fire');
-    arrow3 = document.getElementById('rain');
-    arrow4 = document.getElementById('cold');
+  const attackFunction4 = () => {
+    let messageToPlayer = document.getElementById('msgToPlayer');
 
-    let spelareAttack = Math.floor(Math.random()  * spelare.skada );
-    console.log(spelareAttack);
-    motståndare.hp -= spelareAttack;
+    let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
+    console.log(playerAttack);
+    enemy.hp -= playerAttack;
     printToScreen();
-      arrow1.disabled = true;
-      arrow2.disabled = true;
-      arrow3.disabled = true;
-      arrow4.disabled = true;
+      attack1.disabled = true;
+      attack2.disabled = true;
+      attack3.disabled = true;
+      attack4.disabled = true;
 
-  }
-  const köld = () => {
-    arrow1 = document.getElementById('arrow');
-    arrow2 = document.getElementById('fire');
-    arrow3 = document.getElementById('rain');
-    arrow4 = document.getElementById('cold');
+      //messageToPlayer.innerText = "Opponent strike you for "+ motståndare.skada +" damage";
 
-    let spelareAttack = Math.floor(Math.random()  * spelare.skada );
-    console.log(spelareAttack);
-    motståndare.hp -= spelareAttack;
-    printToScreen();
-      arrow1.disabled = true;
-      arrow2.disabled = true;
-      arrow3.disabled = true;
-      arrow4.disabled = true;
-
+      setTimeout(() => {
+        let enemyAttack = Math.floor(Math.random()  * enemy.dmg);
+        player.hp -= enemyAttack;
+        messageToPlayer.innerText = "Your opponent strikes you for "+ enemyAttack +" damage!";
+        console.log(enemyAttack);
+          printToScreen();
+          attack1.disabled = false;
+          attack2.disabled = false;
+          attack3.disabled = false;
+          attack4.disabled = false;
+      }, 1500 );
 
   }
 
 
 const printToScreen = () => {
-  document.getElementById('motståndarens-hälsa').innerText =
-  motståndare.hp;
+  document.getElementById('enemy-hp').innerText =
+  enemy.hp;
 
-  document.getElementById('din-hälsa').innerText =
-  spelare.hp;
+  document.getElementById('player-hp').innerText =
+  player.hp;
 }
 
 printToScreen();
