@@ -49,18 +49,23 @@ font-size: 20px;
   background-color: snow;
 
 }
-
+.faceOff {
+display: flex;
+}
 .enermy{
+   display: inline-flex;
   height: 280px;
   width: 280px;
   background-image: url('picture/enermy.gif');
-  float: right;
-  margin-bottom: 200px;
+ margin-left: 250px;
+
+
+
 }
 
 #player{
   height: 280px;
   width: 280px;
   background-image:url("picture/knight_idle.gif");
-  margin-top: 150px;
+ margin-left: 150px;
 }
