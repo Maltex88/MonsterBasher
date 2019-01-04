@@ -51,6 +51,7 @@ background-color: snow;
 }
 .faceOff {
 display: flex;
+margin-top: 120px;
 }
 .enermy{
 display: inline-flex;
