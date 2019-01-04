@@ -1,0 +1,73 @@
+body{
+  transition: .6s sease;
+  animation: change 10s infinite;
+
+}
+ @keyframes change{
+ 0%  { background-color:#1a1919}
+ 25% { background-color:#be000e}
+ 50% { background-color:#f6f4f2}
+ 75% { background-color:#002b6c}
+ 100%{ background-color:#011e2e}
+}
+
+.contanier{
+ width: 70%;
+ height: 700px;
+ background-color:bisque;
+ margin-left: 200px;
+ margin-top: 100px;
+ border: solid 5px ;
+ position: relative;
+}
+
+.playerHub{
+  position: absolute;
+  height: 150px;
+  width: 100%;
+  background-color: chocolate;
+  bottom: 0;
+  border-top: 3px solid;
+}
+
+.spellTap{
+  height: 100%;
+  width: 50%;
+  background-color: saddlebrown;
+}
+
+.playerHub .spellTap  button{
+width: 50%;
+height: 50%;
+float: right;
+background-color:tan;
+border: solid 2px;
+font-size: 20px;
+}
+
+.playerHub .spellTap button:hover{
+  background-color: snow;
+
+}
+.faceOff {
+display: flex;
+margin-top: 100px;
+}
+.enermy{
+display: inline-flex;
+height: 280px;
+width: 280px;
+background-image: url('picture/Bash_bransh_monster.gif');
+margin-left: 200px;
+background-repeat: no-repeat;
+}
+.playerImg{
+  float: right;
+  margin-top: 125px;
+}
+
+#player{
+  height: 280px;
+  width: 280px;  /* background-image:url("picture/knight_idle.gif"); */
+ margin-left: 100px;
+}
