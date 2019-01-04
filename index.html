@@ -1,15 +1,23 @@
 <html>
 
   <body>
-    <h2>Enemy hp <span id="enemy-hp"></span> </h2>
-    <h2>Player hp <span id="player-hp"></span></h2>
-    <button id="attack1" onclick="attackFunction1()"></button>
-    <button id="attack2" onclick="attackFunction2()"></button>
-    <button id="attack3" onclick="attackFunction3()"></button>
-    <button id="attack4" onclick="attackFunction4()"></button>
+      <button id="startFight" onclick="startFightFunction()" ></button>
+      <div id="fightBox" hidden="true">
+        <h2>Enemy hp <span id="enemy-hp"></span> </h2>
+        <h2>Player hp <span id="player-hp"></span></h2>
+        <button id="attack1" onclick="attackFunction1()"></button>
+        <button id="attack2" onclick="attackFunction2()"></button>
+        <button id="attack3" onclick="attackFunction3()"></button>
+        <button id="attack4" onclick="attackFunction4()"></button>
 
-    <h2 id="msgToPlayerAttack"> </h2>
-    <h2 id="msgToPlayerAttacked"></h2>
+        <h2 id="msgToPlayerAttack"> </h2>
+        <h2 id="msgToPlayerAttacked"></h2>
+
+
+      </div>
+
+
+
   </body>
 
   <script src="fight.js"></script>
