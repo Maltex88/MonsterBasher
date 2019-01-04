@@ -46,26 +46,27 @@ font-size: 20px;
 }
 
 .playerHub .spellTap button:hover{
-  background-color: snow;
+background-color: snow;
 
 }
 .faceOff {
 display: flex;
 }
 .enermy{
-   display: inline-flex;
-  height: 280px;
-  width: 280px;
-  background-image: url('picture/enermy.gif');
- margin-left: 250px;
-
-
-
+display: inline-flex;
+height: 280px;
+width: 280px;
+background-image: url('picture/Bash_bransh_monster.gif');
+margin-left: 250px;
+}
+.playerImg{
+  float: right;
+  margin-top: 130px;
 }
 
 #player{
-  height: 280px;
-  width: 280px;
-  background-image:url("picture/knight_idle.gif");
- margin-left: 150px;
+height: 280px;
+width: 280px;
+margin-top: 20px;
+margin-left: 150px;
 }
