@@ -51,7 +51,7 @@ attack4.innerText = ""+ player.Abillity4 +"";
       setTimeout(() => {
         let enemyAttack = Math.floor(Math.random()  * enemy.dmg);
         player.hp -= enemyAttack;
-        msgToPlayerAttacked.innerText = "Your opponent strikes you for "+ enemyAttack +" damage!";
+        msgToPlayerAttacked.innerText = "Opponent strikes you for "+ enemyAttack +" damage!";
 
           printToScreen();
           attack1.disabled = false;
@@ -80,7 +80,7 @@ attack4.innerText = ""+ player.Abillity4 +"";
       setTimeout(() => {
         let enemyAttack = Math.floor(Math.random()  * enemy.dmg);
         player.hp -= enemyAttack;
-        msgToPlayerAttacked.innerText = "Your opponent strikes you for "+ enemyAttack +" damage!";
+        msgToPlayerAttacked.innerText = "Opponent strikes you for "+ enemyAttack +" damage!";
 
           printToScreen();
           attack1.disabled = false;
@@ -108,7 +108,7 @@ attack4.innerText = ""+ player.Abillity4 +"";
       setTimeout(() => {
         let enemyAttack = Math.floor(Math.random()  * enemy.dmg);
         player.hp -= enemyAttack;
-        msgToPlayerAttacked.innerText = "Your opponent strikes you for "+ enemyAttack +" damage!";
+        msgToPlayerAttacked.innerText = "Opponent strikes you for "+ enemyAttack +" damage!";
 
           printToScreen();
           attack1.disabled = false;
@@ -138,7 +138,7 @@ attack4.innerText = ""+ player.Abillity4 +"";
       setTimeout(() => {
         let enemyAttack = Math.floor(Math.random()  * enemy.dmg);
         player.hp -= enemyAttack;
-        msgToPlayerAttacked.innerText = "Your opponent strikes you for "+ enemyAttack +" damage!";
+        msgToPlayerAttacked.innerText = "Opponent strikes you for "+ enemyAttack +" damage!";
 
           printToScreen();
           attack1.disabled = false;
