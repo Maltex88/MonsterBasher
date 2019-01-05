@@ -1,3 +1,4 @@
+
 let player = {
   hp: 100,
   dmg: 10,
@@ -11,6 +12,7 @@ let enemy = {
   hp: 110,
   dmg: 10
 }
+
 
 /*used later for disable button*/
 let attack1 =  document.getElementById('attack1');
@@ -124,6 +126,7 @@ attack4.innerText = ""+ player.Abillity4 +"";
     console.log(playerAttack);
     enemy.hp -= playerAttack;
     messageToPlayerAttack.innerText = "You strike your opponent with your " + player.Abillity4 + " ability and did "+ playerAttack +" damage!"
+
     printToScreen();
       attack1.disabled = true;
       attack2.disabled = true;
@@ -150,11 +153,12 @@ attack4.innerText = ""+ player.Abillity4 +"";
 /*Write out new value of enemy and player*/
 const printToScreen = () => {
   document.getElementById('enemy-hp').innerText =
-  enemy.hp;
+  enemy.hp + " /100" ;
 
   document.getElementById('player-hp').innerText =
-  player.hp;
+  player.hp + " /100" ;
 }
+
 
 printToScreen();
 /*Write out new value of enemy and player*/

@@ -14,7 +14,7 @@ body{
 .contanier{
  width: 70%;
  height: 700px;
-background-color: snow;
+background-image: url("picture/CombadFace.png");
  margin-left: 200px;
  margin-top: 100px;
  border: solid 5px ;
@@ -25,15 +25,16 @@ background-color: snow;
   position: absolute;
   height: 150px;
   width: 100%;
-  background-color: chocolate;
+  background:linear-gradient(to bottom left, #669999 19%, #999966 86%);
   bottom: 0;
   border-top: 3px solid;
+  display: flex;
 }
 
 .spellTap{
   height: 100%;
   width: 50%;
-  background-color: saddlebrown;
+
 }
 
 .playerHub .spellTap  button{
@@ -52,24 +53,56 @@ background-color: snow;
 .faceOff {
 display: flex;
 margin-top: 120px;
+position: relative;
+}
+
+
+#enemy-hp{
+  background-color: red;
+  font-size: 15px;
+}
+.enemyHPBar{
+margin-left: 100px;
+font-size: 20px;
+height: 50px;
+position: absolute;
+bottom: 0;
+width: 150px;
+
 }
 .enermy{
+background-repeat: no-repeat;
 display: inline-flex;
-height: 280px;
+height: 350px;
 width: 280px;
 background-image: url('picture/Bash_bransh_monster.gif');
-margin-left: 250px;
+margin-left: 220px;
 }
+
+
+
 .playerImg{
-  float: right;
-  margin-top: 70px;
+float: right;
+margin-top: 150px;
 }
 #player-hp{
-margin-left: 50px;
+font-size: 20px;
+margin-top: 50px;
+margin-left: 30px;
+}
+.player_HP_bar{
+background-image: url("picture/heart.png");
+margin-bottom: 30px;
+display: inline-flex;
+height: 140px;
+width: 160px;
+text-align: center;
+float: right;
+background-repeat: no-repeat;
 }
 #player{
 height: 280px;
 width: 280px;
-margin-top: 20px;
-margin-left: 150px;
+
+margin-left: 120px;
 }
