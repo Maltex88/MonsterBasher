@@ -1,25 +1,40 @@
 <html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+    <body>
 
-  <body>
-      <button id="startFight" onclick="startFightFunction()" ></button>
-      <div id="fightBox" hidden="true">
-        <h2 id="playerName"> <span id="player-hp"></span></h2>
-        <h2 id="enemyName"> <span id="enemy-hp"></span> </h2>
-        <button id="attack1" onclick="attackFunction1()"></button>
-        <button id="attack2" onclick="attackFunction2()"></button>
-        <button id="attack3" onclick="attackFunction3()"></button>
-        <button id="attack4" onclick="attackFunction4()"></button>
-
-        <h2 id="msgToPlayerAttack"> </h2>
-        <h2 id="msgToPlayerAttacked"></h2>
-
-
+      <!-- This section is for character name -->
+      <div id="charactersNameMeny">
+        <input type="text" placeholder="Select your character name" id="inputName"></input>
+        <button id="createCharacter" onclick="characterNameCreated()">Create Character</button>
       </div>
+      <!-- This section is for character name -->
 
+      <!-- This section is for character class -->
+      <div id="charactersclassMeny" hidden="true">
+        <h2 id="selectedName"></h2>
+        <button id="selectCharacterClassWarrior" onclick="selectCharacterClassWarrior()">Warrior</button>
+        <button id="selectCharacterClassMage" onclick="selectCharacterClassMage()">Mage</button>
+        <button id="selectCharacterClassArcher" onclick="selectCharacterClassArcher()">Archer</button>
+      </div>
+      <h2 id="selectedClass"></h2>
+      <!-- This section is for character class -->
 
-
-  </body>
-
+      <!-- This section is for The battle -->
+        <button id="startFight" onclick="startFightFunction()" hidden="true" ></button>
+        <div id="fightBox" hidden="true">
+          <h2 id="playerName"> <span id="player-hp"></span></h2>
+          <h2 id="enemyName"> <span id="enemy-hp"></span> </h2>
+          <button id="attack1" onclick="attackFunction1()"></button>
+          <button id="attack2" onclick="attackFunction2()"></button>
+          <button id="attack3" onclick="attackFunction3()"></button>
+          <button id="attack4" onclick="attackFunction4()"></button>
+          <h2 id="msgToPlayerAttack"> </h2>
+          <h2 id="msgToPlayerAttacked"></h2>
+        </div>
+        <!-- This section is for The battle -->
+      </body>
   <script src="fight.js"></script>
 
 </html>
