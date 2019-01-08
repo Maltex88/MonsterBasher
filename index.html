@@ -23,6 +23,7 @@
 
       <!-- This section is for The battle -->
         <button id="startFight" onclick="startFightFunction()" hidden="true" ></button>
+        <button id="goToTown" onclick="goToTown()" hidden="true" >Go to town</button>
         <div id="fightBox" hidden="true">
           <h2 id="playerName"> <span id="player-hp"></span></h2>
           <h2 id="enemyName"> <span id="enemy-hp"></span> </h2>
@@ -32,7 +33,9 @@
           <button id="attack4" onclick="attackFunction4()"></button>
           <h2 id="msgToPlayerAttack"> </h2>
           <h2 id="msgToPlayerAttacked"></h2>
+          <h2 id="msgToPlayeradvancing"></h2>
         </div>
+        <button id="newFight" hidden="true" onclick="startFightFunction()">Fight more monsters!</button>
         <!-- This section is for The battle -->
       </body>
   <script src="fight.js"></script>

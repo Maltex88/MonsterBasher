@@ -8,13 +8,14 @@ const characterNameCreated = () => {
 selectCharacterClassWarrior = () => {
   selectedClass.innerText = "You have selected the way of the Warrior, " + player.name + ""
   charactersclassMeny.hidden = true;
-  
+
   player.class = "Warrior";
   player.Abillity1 = "Hack";
   player.Abillity2 = "Slash";
   player.Abillity3 = "Slam";
   player.Abillity4 = "Punch";
   startFight.hidden = false;
+  goToTown.hidden = false;
 };
 selectCharacterClassMage = () => {
   selectedClass.innerText = "You have selected the wise Mage"
@@ -24,6 +25,7 @@ selectCharacterClassMage = () => {
   player.Abillity3 = "Lightning bolt";
   player.Abillity4 = "Staff Bash";
   startFight.hidden = false;
+  goToTown.hidden = false;
 };
 selectCharacterClassArcher = () => {
   selectedClass.innerText = "You have selected the agile Archer"
@@ -33,14 +35,31 @@ selectCharacterClassArcher = () => {
   player.Abillity3 = "Piercing Arrow";
   player.Abillity4 = "Assasination Strike";
   startFight.hidden = false;
+  goToTown.hidden = false;
+};
+
+let playerLvlUp = () => {
+let nextlvl = 100;
+if (player.exp >= nextlvl) {
+  player.lvl+=Math.floor(player.exp/nextlvl);// if xp is 1000, two levels up
+  player.exp=player.exp%100
+  nextlvl += 100;
+  msgToPlayeradvancing.innerText = "You have reached lvl: "+ player.lvl +"";
+  }
+
 };
 
 
 
 
+/*
+if (xp > 400) {
+     level+=Math.floor(xp/400);// if xp is 1000, two levels up
+     xp=xp%400;// what is left when increasing levels
+  }
 
-
-
+*/
+/*Player and enemy object*/
 let player = {
   name: "",
   class: "",
@@ -51,7 +70,7 @@ let player = {
   Abillity3: "",
   Abillity4: "",
   lvl: 1, //fixa ett lvlup system..
-  characterExp: 0,
+  exp: 0,
 }
 let enemy = {
   name: "",
@@ -67,7 +86,8 @@ let enemy = {
   resistens: "",
   loot: [], //loot system, random 1-100
 }
-
+/*Player and enemy object*/
+/*Monsterfunction + Monsterlist*/
 let monsterMakerMadness = () => {
   let monsterList = [
      {
@@ -82,7 +102,7 @@ let monsterMakerMadness = () => {
     },
     {
        name: "Tiger",
-       hp: 100,
+       hp: 15,
        dmg: 10,
        exp: 50,
        Abillity1: "Bite",
@@ -92,7 +112,7 @@ let monsterMakerMadness = () => {
    },
    {
       name: "Bear",
-      hp: 250,
+      hp: 15,
       dmg: 10,
       exp: 75,
       Abillity1: "Bite",
@@ -102,7 +122,7 @@ let monsterMakerMadness = () => {
   },
   {
      name: "Hawk",
-     hp: 50,
+     hp: 15,
      dmg: 20,
      exp: 30,
      Abillity1: "Peck",
@@ -134,7 +154,7 @@ let monsterMakerMadness = () => {
     enemy.enemyAbillity3 = rand.enemyAbillity3
     enemy.enemyAbillity4 = rand.enemyAbillity4
 };
-
+/*Monsterfunction + Monsterlist*/
 
 let attackFunction1 = 0;
 let attackFunction2 = 0;
@@ -145,6 +165,15 @@ startFight.innerText = "" + "Go into Battle!!" + "";
 
 
 const startFightFunction = () => {
+  msgToPlayeradvancing.innerText = "";
+
+  goToTown.hidden = true;
+  attackEnable();
+  monsterMakerMadness();
+  msgToPlayerAttacked.innerText = "";
+  msgToPlayerAttack.innerText = "";
+  newFight.hidden = true;
+  selectedClass.innerText = "";
   charactersclassMeny.hidden = true;
   charactersNameMeny.hidden = true;
   printToScreen();
@@ -154,7 +183,7 @@ const startFightFunction = () => {
   let attack2 = document.getElementById('attack2');
   let attack3 = document.getElementById('attack3');
   let attack4 = document.getElementById('attack4');
-
+  //let newFightButton = document.getElementById('newFight')
   attack1.innerText = ""+ player.Abillity1 +"";
   attack2.innerText = ""+ player.Abillity2 +"";
   attack3.innerText = ""+ player.Abillity3 +"";
@@ -172,10 +201,18 @@ const startFightFunction = () => {
     messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity1 + " ability and did "+ playerAttack +" damage!"
     printToScreen();
     if (isGameOver(enemy.hp)){
-      document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";;
-      messageToPlayerAttack.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
+      player.exp += enemy.exp;
+
+      document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
+      messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
+
+
+      playerLvlUp();
       whenGameIsOver();
-      msgToPlayerAttacked.innerText = "";
+      //msgToPlayerAttacked.innerText = "";
+
+      newFight.hidden = false;
+      fightMoreEnemys();
       return;
     }
       attackDisable();
@@ -350,6 +387,11 @@ const whenGameIsOver = () => {
 }
 };
 
+let fightMoreEnemys = () => {
+   monsterMakerMadness();
+
+   //attackEnable();
+};
 
 
 
@@ -374,6 +416,6 @@ const printToScreen = () => {
 
 
 };
-monsterMakerMadness();
+//monsterMakerMadness();
 printToScreen();
 /*Write out new value of enemy and player*/
