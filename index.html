@@ -12,13 +12,40 @@
 </head>
 <body>
 <script src="playBord.js"> </script>
+<audio controls>
+  <source src="Sound/Medieval Music - Black Wolfs Inn.mp3" type="audio/mp3">
 
-<!-- <div id="logIn">
-  <span class="logo"> MonsterBasher
-<input type="text" id="inLogInput" placeholder="Enter you key" value="">
-</span>
-</div> -->
-<div class="contanier">
+</audio>
+
+   <div id="charactersNameMeny">
+     <input type="text" placeholder="What is your name?" id="inputName"></input>
+     <button id="createCharacter" onclick="characterNameCreated()">Create Character</button>
+  </div>
+
+
+  <div id="charactersclassMeny" hidden="true">
+         <h2 id="selectedName"></h2>
+        <div class="showTheClasses">
+          <img src="picture/Hunter.gif">
+          <img src="picture/ozz.gif">
+            <img src="picture/knight_idle.gif" class="KnigthShowOff">
+        </div>
+
+      <button id="selectCharacterClassWarrior" onclick="selectCharacterClassWarrior()">Warrior</button>
+      <button id="selectCharacterClassMage" onclick="selectCharacterClassMage()">Mage</button>
+      <button id="selectCharacterClassArcher" onclick="selectCharacterClassArcher()">Archer</button>
+                      <h2 id="selectedClass"></h2>
+   </div>
+
+
+
+
+
+
+
+
+
+<div id="contanierHidden">
 
 <div class="faceOff">
   <div id="player">
@@ -26,7 +53,7 @@
 
     <img src="picture/Hunter.gif" class="playerImg">
   </div>
-    <div class="enermy">
+    <div id="enermy">
         <div class="enemyHPBar"> Rotten root <span id="enemy-hp"></span> </div>
     </div>
 </div>

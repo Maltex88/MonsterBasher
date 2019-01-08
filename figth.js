@@ -14,6 +14,50 @@ let enemy = {
 }
 
 
+
+
+const characterNameCreated = () => {
+  player.name = $("#inputName").val();
+  charactersNameMeny.hidden = true;
+  charactersclassMeny.hidden = false;
+  selectedName.innerText = "The name of our Hero is " + player.name + ", now select your class! "
+};
+
+selectCharacterClassWarrior = () => {
+  selectedClass.innerText = "You have selected the way of the Warrior, " + player.name + ""
+  charactersclassMeny.hidden = true;
+
+  player.class = "Warrior";
+  player.Abillity1 = "Hack";
+  player.Abillity2 = "Slash";
+  player.Abillity3 = "Slam";
+  player.Abillity4 = "Punch";
+  startFight.hidden = false;
+};
+selectCharacterClassMage = () => {
+  charactersclassMeny.hidden = true;
+  document.getElementById("contanierHidden").id = "contanierShow"; 
+  selectedClass.innerText = "You have selected the wise Mage"
+  player.class = "Mage";
+  player.Abillity1 = "Fire boll";
+  player.Abillity2 = "Ice Blast";
+  player.Abillity3 = "Lightning bolt";
+  player.Abillity4 = "Staff Bash";
+  startFight.hidden = false;
+};
+selectCharacterClassArcher = () => {
+  charactersclassMeny.hidden = true;
+  selectedClass.innerText = "You have selected the agile Archer"
+  player.class = "Archer";
+  player.Abillity1 = "Flame Arrow";
+  player.Abillity2 = "Stun Arrow";
+  player.Abillity3 = "Piercing Arrow";
+  player.Abillity4 = "Assasination Strike";
+  startFight.hidden = false;
+  contanier.display = false;
+};
+
+
 /*used later for disable button*/
 let attack1 =  document.getElementById('attack1');
 let attack2 = document.getElementById('attack2');
@@ -39,8 +83,10 @@ attack4.innerText = ""+ player.Abillity4 +"";
     let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
     //hits the target, change the + 5 for more or less dmg abilitys
     enemy.hp -= playerAttack;
+
     messageToPlayerAttack.innerText = "You strike your opponent with your " + player.Abillity1 + " ability and did "+ playerAttack +" damage!"
     printToScreen();
+
       attack1.disabled = true;
       attack2.disabled = true;
       attack3.disabled = true;

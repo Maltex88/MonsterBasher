@@ -2,7 +2,7 @@ body{
   background-image: url("picture/background_img .png");
   /* transition: .6s sease;
   animation: change 10s infinite; */
-
+ font-family: cursive;
  }
  /*@keyframes change{
  0%  { background-color:#1a1919}
@@ -12,41 +12,93 @@ body{
  100%{ background-color:#011e2e}
 } */
 /* The in log scren  --------------*/
-#logIn{
-  width: 70%;
-  height: 700px;
-  background-image: url("https://pbs.twimg.com/media/CB6xIk-W0AAFw7_.png");
-  margin-left: 200px;
-  border: solid 5px;
+
+
+#charactersNameMeny{
+font-size: 50px;
+background-color: #4e504b;
+margin-bottom: 40;
+height:500px;
+width: 400px;
+margin-left: 530px;
+margin-top: 100px;
+border-radius: 15px 15px;
+border: solid ;
+opacity: .9;
+/* display: none; */
 }
 
-.logo{
-  font-size: 50px;
-  color: white;
-  margin-bottom: 40
-}
-#inLogInput{
+#inputName{
 border-radius: 15px 15px;
 width: 200px;
 height: 30px;
 text-align: center;
 font-size: 20px;
 border: solid;
-margin-left: 395px;
-margin-top: 350px;
+margin-top: 200px;
+margin-left: 100px;
 }
 
 
+#createCharacter{
+margin-left: 130px;
+border-radius: 15px 15px;
+width: 150px;
+height: 20px;
+}
 
+
+/* Select you hero -------*/
+.showTheClasses{
+  margin-top: 100px;
+}
+
+.showTheClasses > img{
+  height: 300px;
+}
+#selectedName{
+font-size: 30px;
+letter-spacing: 5px;
+margin-left: 47px;
+color: snow;
+}
+
+
+#charactersclassMeny{
+width: 70%;
+height: 700px;
+background-color: #343434;
+margin-left: 200px;
+border: solid 5px;
+position: relative;
+ /* display: none; */
+}
+#charactersclassMeny > button{
+  width: 200px;
+  height: 50px;
+  border-radius: 15px 15px;
+  margin: 20px;
+  margin-left: 80px;
+
+}
 /* the playing background */
-.contanier{
+#contanierHidden{
 width: 70%;
 height: 700px;
 background-image: url("picture/CombadFace.png");
 margin-left: 200px;
 border: solid 5px;
 position: relative;
-/* display: none; */
+visibility: hidden;
+}
+#contanierShow{
+width: 70%;
+height: 700px;
+background-image: url("picture/CombadFace.png");
+margin-left: 200px;
+border: solid 5px;
+position: relative;
+visibility:visible;
 }
 
 /* The place were all the spells are -----------*/
@@ -108,13 +160,20 @@ bottom: 0;
 width: 150px;
 
 }
-.enermy{
+#enermy{
 background-repeat: no-repeat;
 display: inline-flex;
 height: 350px;
 width: 280px;
 background-image: url('picture/Bash_bransh_monster.gif');
 margin-left: 220px;
+}
+
+
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
 }
 
 /* players css ---------------------*/
