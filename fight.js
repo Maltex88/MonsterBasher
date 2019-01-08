@@ -37,9 +37,9 @@ selectCharacterClassArcher = () => {
   startFight.hidden = false;
   goToTown.hidden = false;
 };
-
-let playerLvlUp = () => {
 let nextlvl = 100;
+let playerLvlUp = () => {
+
 if (player.exp >= nextlvl) {
   player.lvl+=Math.floor(player.exp/nextlvl);// if xp is 1000, two levels up
   player.exp=player.exp%100
@@ -49,16 +49,7 @@ if (player.exp >= nextlvl) {
 
 };
 
-
-
-
-/*
-if (xp > 400) {
-     level+=Math.floor(xp/400);// if xp is 1000, two levels up
-     xp=xp%400;// what is left when increasing levels
-  }
-
-*/
+console.log(nextlvl);
 /*Player and enemy object*/
 let player = {
   name: "",
@@ -237,122 +228,146 @@ const startFightFunction = () => {
 
 }
     attackFunction2 = () => {
-     let messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
-     let messageToPlayerAttacked = document.getElementById('msgToPlayerAttacked');
-     //Give the player attack information, maybe later make a combatlog?
-     //Players Combat starts
-     let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
-     //hits the target, change the + 5 for more or less dmg abilitys
-     enemy.hp -= playerAttack;
-     messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity2 + " ability and did "+ playerAttack +" damage!"
-     printToScreen();
-     if (isGameOver(enemy.hp)){
-       document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";;
-       messageToPlayerAttack.innerText = "You have slain the "+ enemy.name +" the "+ enemy.name +" was worth " + enemy.exp +" experience points";
-       whenGameIsOver();
-       msgToPlayerAttacked.innerText = "";
-       return;
-     }
-       attackDisable();
-     //Players Combat ends
+      let messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
+      let messageToPlayerAttacked = document.getElementById('msgToPlayerAttacked');
+      //Give the player attack information, maybe later make a combatlog?
 
-     //enemy combat start
-       setTimeout(() => {
-         let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
-         player.hp -= enemyAttack;
-         msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
+      //Players Combat starts
+      let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
+      //hits the target, change the + 5 for more or less dmg abilitys
+      enemy.hp -= playerAttack;
+      messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity2 + " ability and did "+ playerAttack +" damage!"
+      printToScreen();
+      if (isGameOver(enemy.hp)){
+        player.exp += enemy.exp;
 
-           printToScreen();
-           if (isGameOver(player.hp)){
-             document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
-             messageToPlayerAttacked.innerText = "You have died in battle!";
+        document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
+        messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
 
-             whenGameIsOver();
-             return;
-           }
-           attackEnable();
-       }, 1500 /*valu to change time it takes for combat*/);
+
+        playerLvlUp();
+        whenGameIsOver();
+        //msgToPlayerAttacked.innerText = "";
+
+        newFight.hidden = false;
+        fightMoreEnemys();
+        return;
+      }
+        attackDisable();
+      //Players Combat ends
+
+      //enemy combat start
+        setTimeout(() => {
+          let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
+          player.hp -= enemyAttack;
+          msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
+
+            printToScreen();
+            if (isGameOver(player.hp)){
+              document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
+              messageToPlayerAttacked.innerText = "You have died in battle!";
+
+              whenGameIsOver();
+              return;
+            }
+            attackEnable();
+        }, 1500 /*valu to change time it takes for combat*/);
+
 
 
   }
     attackFunction3 = () => {
-     let messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
-     let messageToPlayerAttacked = document.getElementById('msgToPlayerAttacked');
-     //Give the player attack information, maybe later make a combatlog?
+      let messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
+      let messageToPlayerAttacked = document.getElementById('msgToPlayerAttacked');
+      //Give the player attack information, maybe later make a combatlog?
 
-     //Players Combat starts
-     let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
-     //hits the target, change the + 5 for more or less dmg abilitys
-     enemy.hp -= playerAttack;
-     messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity3 + " ability and did "+ playerAttack +" damage!"
-     printToScreen();
-     if (isGameOver(enemy.hp)){
-       document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";;
-       messageToPlayerAttack.innerText = "You have slain the "+ enemy.name +"";
-       whenGameIsOver();
-       msgToPlayerAttacked.innerText = "";
-       return;
-     }
-       attackDisable();
-     //Players Combat ends
+      //Players Combat starts
+      let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
+      //hits the target, change the + 5 for more or less dmg abilitys
+      enemy.hp -= playerAttack;
+      messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity3 + " ability and did "+ playerAttack +" damage!"
+      printToScreen();
+      if (isGameOver(enemy.hp)){
+        player.exp += enemy.exp;
 
-     //enemy combat start
-       setTimeout(() => {
-         let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
-         player.hp -= enemyAttack;
-         msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
+        document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
+        messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
 
-           printToScreen();
-           if (isGameOver(player.hp)){
-             document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
-             messageToPlayerAttacked.innerText = "You have died in battle!";
 
-             whenGameIsOver();
-             return;
-           }
-           attackEnable();
-       }, 1500 /*valu to change time it takes for combat*/);
+        playerLvlUp();
+        whenGameIsOver();
+        //msgToPlayerAttacked.innerText = "";
 
+        newFight.hidden = false;
+        fightMoreEnemys();
+        return;
+      }
+        attackDisable();
+      //Players Combat ends
+
+      //enemy combat start
+        setTimeout(() => {
+          let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
+          player.hp -= enemyAttack;
+          msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
+
+            printToScreen();
+            if (isGameOver(player.hp)){
+              document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
+              messageToPlayerAttacked.innerText = "You have died in battle!";
+
+              whenGameIsOver();
+              return;
+            }
+            attackEnable();
+        }, 1500 /*valu to change time it takes for combat*/);
 
   }
     attackFunction4 = () => {
-     let messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
-     let messageToPlayerAttacked = document.getElementById('msgToPlayerAttacked');
-     //Give the player attack information, maybe later make a combatlog?
+      let messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
+      let messageToPlayerAttacked = document.getElementById('msgToPlayerAttacked');
+      //Give the player attack information, maybe later make a combatlog?
 
-     //Players Combat starts
-     let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
-     //hits the target, change the + 5 for more or less dmg abilitys
-     enemy.hp -= playerAttack;
-     messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity4 + " ability and did "+ playerAttack +" damage!"
-     printToScreen();
-     if (isGameOver(enemy.hp)){
-       document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";;
-       messageToPlayerAttack.innerText = "You have slain the "+ enemy.name +"";
-       whenGameIsOver();
-       msgToPlayerAttacked.innerText = "";
-       return;
-     }
-       attackDisable();
-     //Players Combat ends
+      //Players Combat starts
+      let playerAttack = Math.floor(Math.random()  * player.dmg + 5);
+      //hits the target, change the + 5 for more or less dmg abilitys
+      enemy.hp -= playerAttack;
+      messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity4 + " ability and did "+ playerAttack +" damage!"
+      printToScreen();
+      if (isGameOver(enemy.hp)){
+        player.exp += enemy.exp;
 
-     //enemy combat start
-       setTimeout(() => {
-         let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
-         player.hp -= enemyAttack;
-         msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
+        document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
+        messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
 
-           printToScreen();
-           if (isGameOver(player.hp)){
-             document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
-             messageToPlayerAttacked.innerText = "You have died in battle!";
 
-             whenGameIsOver();
-             return;
-           }
-           attackEnable();
-       }, 1500 /*valu to change time it takes for combat*/);
+        playerLvlUp();
+        whenGameIsOver();
+        //msgToPlayerAttacked.innerText = "";
 
+        newFight.hidden = false;
+        fightMoreEnemys();
+        return;
+      }
+        attackDisable();
+      //Players Combat ends
+
+      //enemy combat start
+        setTimeout(() => {
+          let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
+          player.hp -= enemyAttack;
+          msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
+
+            printToScreen();
+            if (isGameOver(player.hp)){
+              document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
+              messageToPlayerAttacked.innerText = "You have died in battle!";
+
+              whenGameIsOver();
+              return;
+            }
+            attackEnable();
+        }, 1500 /*valu to change time it takes for combat*/);
 
   }
 
