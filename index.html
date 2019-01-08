@@ -22,19 +22,19 @@
      <button id="createCharacter" onclick="characterNameCreated()">Create Character</button>
   </div>
 
-
+<!-- This part is diplay during the picking face --------------->
   <div id="charactersclassMeny" hidden="true">
          <h2 id="selectedName"></h2>
         <div class="showTheClasses">
-          <img src="picture/Hunter.gif">
-          <img src="picture/ozz.gif">
-            <img src="picture/knight_idle.gif" class="KnigthShowOff">
+          <div class="knightDivShow"> <img src="picture/knight_idle.gif"> </div>
+          <div class="ozzDivShow"><img src="picture/ozz.gif" class="ozzImgShow"> </div>
+          <div class="hunterDivShow"><img src="picture/Hunter.gif" class="hunterImgShow"></div>
         </div>
-
-      <button id="selectCharacterClassWarrior" onclick="selectCharacterClassWarrior()">Warrior</button>
-      <button id="selectCharacterClassMage" onclick="selectCharacterClassMage()">Mage</button>
-      <button id="selectCharacterClassArcher" onclick="selectCharacterClassArcher()">Archer</button>
-                      <h2 id="selectedClass"></h2>
+ <!-- And here are the button that are use for pick a hero ----------->
+  <button id="selectCharacterClassWarrior" onclick="selectCharacterClassWarrior()">Warrior</button>
+  <button id="selectCharacterClassMage" onclick="selectCharacterClassMage()">Mage</button>
+  <button id="selectCharacterClassArcher" onclick="selectCharacterClassArcher()">Archer</button>
+                  <h2 id="selectedClass"></h2>
    </div>
 
 
@@ -51,7 +51,7 @@
   <div id="player">
 
 
-    <img src="picture/Hunter.gif" class="playerImg">
+    <img src="picture/Hunter.gif" id="playerImg">
   </div>
     <div id="enermy">
         <div class="enemyHPBar"> Rotten root <span id="enemy-hp"></span> </div>

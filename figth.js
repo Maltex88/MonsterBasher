@@ -1,11 +1,15 @@
 
 let player = {
+  name: "",
+  class: "",
   hp: 100,
-  dmg: 10,
-  Abillity1: "Arrow",
-  Abillity2: "Fire Arrow",
-  Abillity3: "Lightning Arrow",
-  Abillity4: "Cold Arrow"
+  dmg: 40,
+  Abillity1: "",
+  Abillity2: "",
+  Abillity3: "",
+  Abillity4: "",
+  lvl: 1, //fixa ett lvlup system..
+  characterExp: 0,
 }
 
 let enemy = {
@@ -26,35 +30,68 @@ const characterNameCreated = () => {
 selectCharacterClassWarrior = () => {
   selectedClass.innerText = "You have selected the way of the Warrior, " + player.name + ""
   charactersclassMeny.hidden = true;
-
+  document.getElementById("contanierHidden").id = "contanierShow";
+  document.getElementById("playerImg").src = "picture/knight_idle.gif";
   player.class = "Warrior";
   player.Abillity1 = "Hack";
   player.Abillity2 = "Slash";
   player.Abillity3 = "Slam";
   player.Abillity4 = "Punch";
-  startFight.hidden = false;
+
+    let attack1 =  document.getElementById('attack1');
+    let attack2 = document.getElementById('attack2');
+    let attack3 = document.getElementById('attack3');
+    let attack4 = document.getElementById('attack4');
+
+    attack1.innerText = ""+ player.Abillity1 +"";
+    attack2.innerText = ""+ player.Abillity2 +"";
+    attack3.innerText = ""+ player.Abillity3 +"";
+    attack4.innerText = ""+ player.Abillity4 +"";
+
+
 };
+
 selectCharacterClassMage = () => {
   charactersclassMeny.hidden = true;
-  document.getElementById("contanierHidden").id = "contanierShow"; 
+  document.getElementById("contanierHidden").id = "contanierShow";
   selectedClass.innerText = "You have selected the wise Mage"
+  document.getElementById("playerImg").src = "picture/ozz.gif";
   player.class = "Mage";
   player.Abillity1 = "Fire boll";
   player.Abillity2 = "Ice Blast";
   player.Abillity3 = "Lightning bolt";
   player.Abillity4 = "Staff Bash";
-  startFight.hidden = false;
+
+  let attack1 =  document.getElementById('attack1');
+  let attack2 = document.getElementById('attack2');
+  let attack3 = document.getElementById('attack3');
+  let attack4 = document.getElementById('attack4');
+
+  attack1.innerText = ""+ player.Abillity1 +"";
+  attack2.innerText = ""+ player.Abillity2 +"";
+  attack3.innerText = ""+ player.Abillity3 +"";
+  attack4.innerText = ""+ player.Abillity4 +"";
 };
 selectCharacterClassArcher = () => {
   charactersclassMeny.hidden = true;
+  document.getElementById("contanierHidden").id = "contanierShow";
+  document.getElementById("playerImg").src = "picture/Hunter.gif";
   selectedClass.innerText = "You have selected the agile Archer"
   player.class = "Archer";
   player.Abillity1 = "Flame Arrow";
   player.Abillity2 = "Stun Arrow";
   player.Abillity3 = "Piercing Arrow";
   player.Abillity4 = "Assasination Strike";
-  startFight.hidden = false;
-  contanier.display = false;
+
+  let attack1 =  document.getElementById('attack1');
+  let attack2 = document.getElementById('attack2');
+  let attack3 = document.getElementById('attack3');
+  let attack4 = document.getElementById('attack4');
+
+  attack1.innerText = ""+ player.Abillity1 +"";
+  attack2.innerText = ""+ player.Abillity2 +"";
+  attack3.innerText = ""+ player.Abillity3 +"";
+  attack4.innerText = ""+ player.Abillity4 +"";
 };
 
 

@@ -51,11 +51,9 @@ height: 20px;
 /* Select you hero -------*/
 .showTheClasses{
   margin-top: 100px;
+  display: flex;
 }
 
-.showTheClasses > img{
-  height: 300px;
-}
 #selectedName{
 font-size: 30px;
 letter-spacing: 5px;
@@ -63,11 +61,22 @@ margin-left: 47px;
 color: snow;
 }
 
+.showTheClasses > div{
+  display:inline-flex;
+  margin-left: 120px;
+}
 
+
+.ozzImgShow{
+  margin-left: 15px;
+}
+.hunterImgShow{
+margin-left: 35px;
+}
 #charactersclassMeny{
 width: 70%;
 height: 700px;
-background-color: #343434;
+background-color: #432f26;
 margin-left: 200px;
 border: solid 5px;
 position: relative;
@@ -78,7 +87,8 @@ position: relative;
   height: 50px;
   border-radius: 15px 15px;
   margin: 20px;
-  margin-left: 80px;
+  margin-left: 90px;
+  margin-top: 50px;
 
 }
 /* the playing background */
@@ -89,7 +99,7 @@ background-image: url("picture/CombadFace.png");
 margin-left: 200px;
 border: solid 5px;
 position: relative;
-visibility: hidden;
+display: none;
 }
 #contanierShow{
 width: 70%;
@@ -183,7 +193,7 @@ width: 600px;
 font-size: 20px;
 
 }
-.playerImg{
+#playerImg{
 float: right;
 margin-top: 150px;
 }
