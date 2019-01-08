@@ -4,6 +4,9 @@ body{
   animation: change 10s infinite; */
  font-family: cursive;
  }
+ button{
+   font-family: cursive;
+ }
  /*@keyframes change{
  0%  { background-color:#1a1919}
  25% { background-color:#be000e}
@@ -76,16 +79,23 @@ margin-left: 35px;
 #charactersclassMeny{
 width: 70%;
 height: 700px;
-background-color: #432f26;
+background-color: #7f7e7d;
 margin-left: 200px;
 border: solid 5px;
 position: relative;
  /* display: none; */
 }
+#charactersclassMeny > button:hover {
+  background-color: #cdb39a;
+
+}
 #charactersclassMeny > button{
+  background-color: #924702;
+  font-size: 20px;
   width: 200px;
   height: 50px;
-  border-radius: 15px 15px;
+  /* border-radius: 15px 15px; */
+  border: 0.4px solid;
   margin: 20px;
   margin-left: 90px;
   margin-top: 50px;
