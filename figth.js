@@ -14,8 +14,8 @@ $(document).ready(() => {
 
 selectCharacterClassWarrior = () => {
   selectedClass.innerText = "You have selected the way of the Warrior, " + player.name + ""
-  charactersclassMeny.hidden = true;
-document.getElementById("playerImg").src = "picture/knight_idle.gif";
+  
+  document.getElementById("playerImg").src = "picture/knight_idle.gif";
   player.class = "Warrior";
   player.Abillity1 = "Hack";
   player.Abillity2 = "Slash";
