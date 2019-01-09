@@ -10,7 +10,7 @@ let loginApp = {};
             uid = user.id;
         } else{
             uid = null;
-           window.location.replace('login.html') // här hamnar man om man loggar ut
+           window.location.replace('index.html') // här hamnar man om man loggar ut
             // i detta fall tillbaka till login sidan. Ändra till valfri html sida.
         }
     });
