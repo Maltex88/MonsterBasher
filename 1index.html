@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="sv" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="playBord.css">
+  <script src=" https://code.jquery.com/jquery-3.3.1.js"> </script>
+    <title>The Game</title>
+</head>
+<body>
+<button id="save-game-btn" onclick="save()">Save Game</button>
+
+<script src="playBord.js"> </script>
+<audio controls>
+  <source src="Sound/Medieval Music - Black Wolfs Inn.mp3" type="audio/mp3">
+
+</audio>
+
+   <div id="charactersNameMeny">
+       <input type="text" placeholder="What is your name?" id="inputName"/>
+     <button id="createCharacter" onclick="characterNameCreated()">Create Character</button>
+  </div>
+
+
+  <div id="charactersclassMeny" hidden="true">
+         <h2 id="selectedName"></h2>
+        <div class="showTheClasses">
+          <img src="picture/Hunter.gif">
+          <img src="picture/ozz.gif">
+            <img src="picture/knight_idle.gif" class="KnigthShowOff">
+        </div>
+
+      <button id="selectCharacterClassWarrior" onclick="selectCharacterClassWarrior()">Warrior</button>
+      <button id="selectCharacterClassMage" onclick="selectCharacterClassMage()">Mage</button>
+      <button id="selectCharacterClassArcher" onclick="selectCharacterClassArcher()">Archer</button>
+                      <h2 id="selectedClass"></h2>
+   </div>
+
+
+
+
+
+
+
+
+
+<div id="contanierHidden">
+
+<div class="faceOff">
+  <div id="player">
+
+
+    <img src="picture/Hunter.gif" class="playerImg">
+  </div>
+    <div id="enermy">
+        <div class="enemyHPBar"> Rotten root <span id="enemy-hp"></span> </div>
+    </div>
+</div>
+
+<div id="msgToPlayerAttack"> </div>
+<div id="msgToPlayerAttacked"></div>
+
+<div class="playerHub">
+  <div class="spellTap">
+  <button id="attack1" onclick="attackFunction1()"></button>
+  <button id="attack2" onclick="attackFunction2()"></button>
+  <button id="attack3" onclick="attackFunction3()"></button>
+  <button id="attack4" onclick="attackFunction4()"></button>
+</div>
+    <div class="player_HP_bar">
+      <span id="player-hp"></span>
+    </div>
+
+</div>
+</div>
+</body>
+<script src="figth.js"> </script>
+<script src="localStorage_logic/localStorage.js"> </script>
+
+</html>

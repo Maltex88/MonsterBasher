@@ -88,11 +88,6 @@ border: solid 5px;
 position: relative;
  /* display: none; */
 }
- #selectedClass{
-  margin-left: 300px;
-  width: 100px;
-  text-align: center;
-}
 #charactersclassMeny > button:hover {
   background-color: #cdb39a;
 
