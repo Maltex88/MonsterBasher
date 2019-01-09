@@ -14,7 +14,7 @@ $(document).ready(() => {
 
 selectCharacterClassWarrior = () => {
   selectedClass.innerText = "You have selected the way of the Warrior, " + player.name + ""
-  
+
   document.getElementById("playerImg").src = "picture/knight_idle.gif";
   player.class = "Warrior";
   player.Abillity1 = "Hack";
@@ -165,7 +165,6 @@ let attackFunction4 = 0;
 
 const startFightFunction = () => {
   msgToPlayeradvancing.innerText = "";
-
   goToTown.hidden = true;
   attackEnable();
   monsterMakerMadness();
