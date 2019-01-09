@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="sv" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="playBord.css">
+  <script src=" https://code.jquery.com/jquery-3.3.1.js"> </script>
+  <!-- <script src="fight.js"> </script> -->
+    <title>The Game</title>
+</head>
+<body>
+  <!-- This section is for character name -->
+        <div id="charactersNameMeny">
+          <input type="text" placeholder="Select your character name" id="inputName"></input>
+          <button id="createCharacter" onclick="characterNameCreated()">Create Character</button>
+        </div>
+        <!-- This section is for character name -->
+
+        <!-- This part is diplay during the picking face --------------->
+    <div id="charactersclassMeny" hidden="true">
+           <h2 id="selectedName"></h2>
+          <div class="showTheClasses">
+            <div class="knightDivShow"> <img src="picture/knight_idle.gif"> </div>
+            <div class="ozzDivShow"><img src="picture/ozz.gif" class="ozzImgShow"> </div>
+            <div class="hunterDivShow"><img src="picture/Hunter.gif" class="hunterImgShow"></div>
+          </div>
+   <!-- And here are the button that are use for pick a hero ----------->
+    <button id="selectCharacterClassWarrior" onclick="selectCharacterClassWarrior()">Warrior</button>
+    <button id="selectCharacterClassMage" onclick="selectCharacterClassMage()">Mage</button>
+    <button id="selectCharacterClassArcher" onclick="selectCharacterClassArcher()">Archer</button>
+                    <div id="selectedClass"></div>
+
+            <!-- This section is for The battle -->
+
+            <button id="startFight" onclick="startFightFunction()" hidden="true" ></button>
+            <button id="goToTown" onclick="goToTown()" hidden="true" >Go to town</button>
+
+     </div>
+
+        <!-- This section is for character class -->
+        <div id="contanierHidden" hidden="true">
+          <button id="newFight" hidden="true" onclick="startFightFunction()">Fight more monsters!</button>
+
+        <div class="faceOff">
+          <div id="player">
+
+
+            <img src="picture/Hunter.gif" id="playerImg">
+          </div>
+            <div id="enermy">
+                <div class="enemyHPBar">  <span id="enemy-hp"></span> </div>
+            </div>
+        </div>
+
+        <div id="msgToPlayerAttack"> </div>
+        <div id="msgToPlayerAttacked"></div>
+
+        <div class="playerHub">
+          <div class="spellTap">
+          <button id="attack1" onclick="attackFunction1()"></button>
+          <button id="attack2" onclick="attackFunction2()"></button>
+          <button id="attack3" onclick="attackFunction3()"></button>
+          <button id="attack4" onclick="attackFunction4()"></button>
+        </div>
+            <div="playerName">
+             <span id="player-hp"></span>
+            </div>
+
+        </div>
+        </div>
+
+
+          <div id="fightBox" hidden="true">
+
+            <h2 id="enemyName"> <span id="enemy-hp"></span> </h2>
+            <button id="attack1" onclick="attackFunction1()"></button>
+            <button id="attack2" onclick="attackFunction2()"></button>
+            <button id="attack3" onclick="attackFunction3()"></button>
+            <button id="attack4" onclick="attackFunction4()"></button>
+            <h2 id="msgToPlayerAttack"> </h2>
+            <h2 id="msgToPlayerAttacked"></h2>
+            <h2 id="msgToPlayeradvancing"></h2>
+          </div>
+          <!-- <button id="newFight" hidden="true" onclick="startFightFunction()">Fight more monsters!</button> -->
+          <!-- This section is for The battle -->
+</body>
+ <script src="figth.js"> </script>
+<script src="localStorage_logic/localStorage.js"> </script>
+
+</html>
