@@ -49,7 +49,10 @@ margin-left: 130px;
 border-radius: 15px 15px;
 width: 150px;
 height: 20px;
+font-size: 15px;
+
 }
+
 
 
 /* Select you hero -------*/
@@ -113,10 +116,10 @@ position: relative;
 display: none;
 }
 #contanierShow{
-width: 70%;
-height: 700px;
+width: 100%;
+height: 780px;
 background-image: url("picture/CombadFace.png");
-margin-left: 200px;
+
 border: solid 5px;
 position: relative;
 visibility:visible;
@@ -200,7 +203,7 @@ margin-left: 220px;
 /* players css ---------------------*/
 #msgToPlayerAttack{
 background-color: saddlebrown;
-width: 600px;
+width: 800px
 font-size: 20px;
 
 }
