@@ -15,6 +15,7 @@ let player = {
   Abillity4: "",
   lvl: 1, //fixa ett lvlup system..
   exp: 0,
+  enemysKilled: 0,
 }
 let enemy = {
   name: "",
@@ -89,7 +90,7 @@ $(document).ready(() => {
     playerName.innerText = ""+ player.name +"";
     playerLvl.innerText = "Lvl: "+ player.lvl +"";
     playerClass.innerText = "Class: "+ player.class +"";
-    monstersKilled.innerText = "Enemys killed: "+ player.kills +""
+    monstersKilled.innerText = "Enemys killed: "+ player.enemysKilled +""
   });
   $('#attack1').click(function(){
     msgToPlayer();
@@ -176,7 +177,7 @@ $(document).ready(() => {
       }, 1500);
   });
   $('#startFight, #newFight, #fromTownToBattle').click(function(){
-
+      toTownFromBattle.hidden = true;
       $('#playerNav').hide();
       charCreateAndBattle.hidden = false;
       playerNav.hidden = true;
@@ -315,9 +316,11 @@ let enemyAttacked4 = () => {
 } //attack function spell 4
 let enemyKilled = () => {
   player.exp += enemy.exp;
+  player.enemysKilled += 1;
   document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
   messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
   newFight.hidden = false;
+  toTownFromBattle.hidden = false;
 }; //when enemy dies , give player exp and display msg
 let msgToPlayer = () => {
   messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
