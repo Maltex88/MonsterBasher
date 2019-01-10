@@ -11,6 +11,9 @@
 </head>
 <body>
   <!-- This section is for character name -->
+  <div id="charCreateAndBattle">
+
+
   <div id="charactersNameMeny">
     <input type="text" placeholder="Select your character name" id="inputName"></input>
     <button id="createCharacter">Create Character</button>
@@ -35,7 +38,11 @@
     <button id="startFight" hidden="true" ></button>
     <button id="goToTown" hidden="true" >Go to town</button>
   </div>
+
+
   <!-- Kamphols kod, kaos! -->
+
+
   <div id="contanierHidden" hidden="true">
     <div class="faceOff">
       <div id="player">
@@ -60,9 +67,61 @@
             <h2 id="msgToPlayeradvancing"></h2>
           </div>
         <button id="newFight" hidden="true">Fight more monsters!</button>
+      </div>
+    </div>
+  </div>
+  <!-- Här slutar kamphols kod-->
+</div> <!-- Denna div gör att man kan display hidden på hela den första koden och ta display hidden false på koden nedan för att få fram
+            playerhubben-->
+
+  <!-- Go to town -->
+
+
+
+  <div id="playerNav" hidden="true">
+    <div id="playerHubNav">
+      <button id="exitButton">Game Meny</button>
+      <div id="playerHubNavBox1">
+        <button>Battle</button>
+        <button>Shop</button>
+      </div>
+      <div id="playerHubNavBox2">
+        <button>Highscores</button>
+        <button>Help</button>
+        <button>Contact</button>
+        <button>Exit</button>
+        <p> © Henrik, Kamphol, Ibra</p>
+      </div>
+    </div>
+
+    <div id="playerHubMain">
+      <h2 class="characterBioName">Maltex</h2>
+      <div id="playerHubMainBox1">
+        <div id="characterPortrait"></div>
         <div>
-          <!-- Placholder div -->
+          <h3>Name:</h3>
+          <h3>Class:</h3>
+          <h3>Lvl:</h3>
+          <h3>More:</h3>
+          <h3>Content:</h3>
+          <h3>Needed:</h3>
         </div>
+      </div>
+      <div id="playerHubMainBox2">
+      </div>
+    </div>
+    <div id="playerHubInventoryBox">
+      <h2>Character Equipment</h2>
+      <div id="playerHubInventoryBox1">
+        <p>paragraf</p>
+        <p>paragraf</p>
+        <p>paragraf</p>
+      </div>
+      <div id="playerHubInventoryBox2">
+        <p>playerHubInventoryBox1</p>
+      </div>
+      <div id="playerHubInventoryBox3">
+        <p>playerHubInventoryBox2</p>
       </div>
     </div>
   </div>

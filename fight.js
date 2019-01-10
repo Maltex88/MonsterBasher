@@ -74,7 +74,8 @@ $(document).ready(() => {
     goToTown.hidden = false;
   });
   $('#goToTown').click(function(){
-    //soon to come
+    charCreateAndBattle.hidden = true;
+    playerNav.hidden = false;
   });
   $('#attack1').click(function(){
     msgToPlayer();
