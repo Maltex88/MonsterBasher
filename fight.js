@@ -371,7 +371,7 @@ let monsterMakerMadness = () => {
 
     },
     {
-      image: "picture/Bash_bransh_monster",
+      image: "picture/Bash_bransh_monster.gif",
        name: "Rotten Rot",
        hp: 15,
        dmg: 10,
@@ -392,7 +392,8 @@ let monsterMakerMadness = () => {
       Abillity4: "Flee"
   },
   {
-     name: "Hawk",
+     name: "Crow",
+     image: "picture/bierdee.png",
      hp: 15,
      dmg: 20,
      exp: 30,
