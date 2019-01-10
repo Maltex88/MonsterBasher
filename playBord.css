@@ -1,5 +1,5 @@
 body{
-  /*background-image: url("picture/background_img .png"); visar du background i body blir det svårare med att få till playerhub */
+  background-image: url("picture/background_img .png"); visar du background i body blir det svårare med att få till playerhub 
   /* transition: .6s sease;
   animation: change 10s infinite; */
  font-family: cursive;
@@ -248,9 +248,9 @@ width: 280px;
 margin-left: 120px;
 }
 
-/*Här börjar Henrik css*/
+
 button {
-  background-color: lightgrey; /* Green */
+  background-color: lightgrey;
   border: 1px solid black;
   color: black;
   width: 100%;

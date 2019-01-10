@@ -52,7 +52,11 @@
         <div class="enemyHPBar">  <span id="enemy-hp"></span> </div>
       </div>
     </div>
+    <button id="newFight" hidden="true">Fight more monsters!</button>
+    <button id="toTownFromBattle">Back to town!</button>
+    <button  id="log-out-btn">logout</button>
     <div class="playerHub">
+
       <div class="spellTap">
         <button id="attack1"></button>
         <button id="attack2"></button>
@@ -66,7 +70,7 @@
             <div id="msgToPlayerAttacked"></div>
             <h2 id="msgToPlayeradvancing"></h2>
           </div>
-        <button id="newFight" hidden="true">Fight more monsters!</button>
+
       </div>
     </div>
   </div>
@@ -82,7 +86,7 @@
     <div id="playerHubNav">
       <button id="exitButton">Game Meny</button>
       <div id="playerHubNavBox1">
-        <button>Battle</button>
+        <button id="fromTownToBattle">Battle</button>
         <button>Shop</button>
       </div>
       <div id="playerHubNavBox2">
@@ -95,14 +99,14 @@
     </div>
 
     <div id="playerHubMain">
-      <h2 class="characterBioName">Maltex</h2>
+      <h2 class="characterBioName" id="characterBioName"></h2>
       <div id="playerHubMainBox1">
         <div id="characterPortrait"></div>
         <div>
-          <h3>Name:</h3>
-          <h3>Class:</h3>
-          <h3>Lvl:</h3>
-          <h3>More:</h3>
+          <h3 id="lvl"></h3>
+          <h3 id="class"></h3>
+          <h3 id="monstersKilled">0</h3>
+          <h3 >More:</h3>
           <h3>Content:</h3>
           <h3>Needed:</h3>
         </div>
