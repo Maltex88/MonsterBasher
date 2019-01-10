@@ -39,13 +39,15 @@ $(document).ready(() => {
   fromTownToBattle = document.getElementById('fromTownToBattle')
   toTownFromBattle = document.getElementById('toTownFromBattle')
   playerNav = document.getElementById('playerNav')
+
   playerLvl = document.getElementById('lvl')
   playerName = document.getElementById('characterBioName')
   playerClass = document.getElementById('class')
   monstersKilled = document.getElementById('monstersKilled')
   startFight.innerText = "" + "Go into Battle!!" + "";
-
+  
   $('#createCharacter').click(function(){
+
     player.name = $("#inputName").val();
     charactersNameMeny.hidden = true;
     charactersclassMeny.hidden = false;
