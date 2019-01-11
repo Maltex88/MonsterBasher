@@ -14,14 +14,14 @@
   <div id="charCreateAndBattle">
 
 
-  <div id="charactersNameMeny">
+    <div id="charactersNameMeny">
     <input type="text" placeholder="Select your character name" id="inputName"></input>
     <button id="createCharacter">Create Character</button>
   </div>
   <!-- This section is for character name -->
 
   <!-- This part is diplay during the picking face --------------->
-  <div id="charactersclassMeny" hidden="true">
+    <div id="charactersclassMeny" hidden="true">
     <h2 id="selectedName"></h2>
 
     <div class="showTheClasses">
@@ -38,22 +38,19 @@
     <button id="startFight" hidden="true" ></button>
     <button id="goToTown" hidden="true" >Go to town</button>
   </div>
-
-
   <!-- Kamphols kod, kaos! -->
-
-
   <div id="contanierHidden" hidden="true">
     <div class="faceOff">
       <div id="player">
         <img src="picture/Hunter.gif" id="playerImg">
       </div>
       <div id="enermy">
-        <img id="enemyImg" src="picture/Bash_bransh_monster.gif">
         <div class="enemyHPBar">  <span id="enemy-hp"></span> </div>
       </div>
     </div>
+
     <div class="playerHub">
+
       <div class="spellTap">
         <button id="attack1"></button>
         <button id="attack2"></button>
@@ -62,18 +59,25 @@
       </div>
       <div id="playerName">
         <span id="player-hp"></span>
-          <div>
-            <div id="msgToPlayerAttack"></div>
-            <div id="msgToPlayerAttacked"></div>
-            <h2 id="msgToPlayeradvancing"></h2>
-          </div>
+        <p>hej</p>
+      </div>
+      <div>
+        <div id="msgToPlayerAttack"></div>
+        <div id="msgToPlayerAttacked"></div>
+        <h2 id="msgToPlayeradvancing"></h2>
+      </div>
+      <div>
         <button id="newFight" hidden="true">Fight more monsters!</button>
+        <button id="toTownFromBattle" hidden="true">Back to town!</button>
+        <button  id="log-out-btn">logout</button>
+      </div>
       </div>
     </div>
-  </div>
+  </div> <!-- Denna div gör att man kan display hidden på hela den första koden och ta display hidden false på koden nedan för att få fram
+              playerhubben-->
+
   <!-- Här slutar kamphols kod-->
-</div> <!-- Denna div gör att man kan display hidden på hela den första koden och ta display hidden false på koden nedan för att få fram
-            playerhubben-->
+
 
   <!-- Go to town -->
 
@@ -83,7 +87,7 @@
     <div id="playerHubNav">
       <button id="exitButton">Game Meny</button>
       <div id="playerHubNavBox1">
-        <button>Battle</button>
+        <button id="fromTownToBattle">Battle</button>
         <button>Shop</button>
       </div>
       <div id="playerHubNavBox2">
@@ -96,14 +100,14 @@
     </div>
 
     <div id="playerHubMain">
-      <h2 class="characterBioName">Maltex</h2>
+      <h2 class="characterBioName" id="characterBioName"></h2>
       <div id="playerHubMainBox1">
         <div id="characterPortrait"></div>
         <div>
-          <h3>Name:</h3>
-          <h3>Class:</h3>
-          <h3>Lvl:</h3>
-          <h3>More:</h3>
+          <h3 id="lvl"></h3>
+          <h3 id="class"></h3>
+          <h3 id="monstersKilled">0</h3>
+          <h3 >More:</h3>
           <h3>Content:</h3>
           <h3>Needed:</h3>
         </div>
@@ -129,7 +133,6 @@
 <!-- Snippet av henriks orginal kod, använd om du behöver ngt, annars ta bort -->
 <!--
           <div id="fightBx" hidden="true">
-
             <h2 id="enemyName"> <span id="enemy-hp"></span> </h2>
             <button id="attack1"></button>
             <button id="attack2"></button>

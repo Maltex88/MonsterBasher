@@ -1,9 +1,9 @@
 body{
-  /*background-image: url("picture/background_img .png"); visar du background i body blir det svårare med att få till playerhub */
-  /* transition: .6s sease;
-  animation: change 10s infinite; */
  font-family: cursive;
  }
+
+
+ /* Character creation stats here--------------- */
 #charCreateAndBattle {
   background-image: url("picture/background_img .png");
   min-height: 100%;
@@ -20,18 +20,7 @@ body{
  }
 
 
-/* button{
-   font-family: cursive;
- }*/
 
- /*@keyframes change{
- 0%  { background-color:#1a1919}
- 25% { background-color:#be000e}
- 50% { background-color:#f6f4f2}
- 75% { background-color:#002b6c}
- 100%{ background-color:#011e2e}
-} */
-/* The in log scren  --------------*/
 
 
 #charactersNameMeny{
@@ -45,7 +34,6 @@ margin-top: 100px;
 border-radius: 15px 15px;
 border: solid ;
 opacity: .9;
-/* display: none; */
 }
 
 #inputName{
@@ -59,14 +47,12 @@ margin-top: 200px;
 margin-left: 100px;
 }
 
-
 #createCharacter{
 margin-left: 130px;
 border-radius: 15px 15px;
 width: 150px;
 height: 20px;
 font-size: 15px;
-
 }
 
 
@@ -132,7 +118,7 @@ position: relative;
 }
 /* the playing background */
 #contanierHidden{
-
+width: 100%;
 height: 700px;
 background-image: url("picture/CombadFace.png");
 border: solid 5px;
@@ -181,9 +167,11 @@ position: relative;
 
 /* everthing that have to do with the enemy */
 #msgToPlayerAttacked{
-  background-color: brown;
+  background-color: black;
+  color: red;
+  border: 1px dotted red;
   width: 500px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 #enemy-hp{
@@ -204,6 +192,7 @@ background-repeat: no-repeat;
 display: inline-flex;
 height: 350px;
 width: 280px;
+background-image: url('picture/Bash_bransh_monster.gif');
 margin-left: 220px;
 }
 
@@ -216,15 +205,51 @@ margin-left: 220px;
 
 /* players css ---------------------*/
 #msgToPlayerAttack{
-background-color: saddlebrown;
-width: 800px
-font-size: 20px;
+background-color: black;
+color: red;
+
+width: 500px
+font-size: 15px;
+}
+#msgToPlayeradvancing{
+  background-color: black;
+  color: red;
 
 }
+
+#player{
+height: 280px;
+width: 280px;
+margin-left: 120px;
+position: relative;
+/* animation-name: example; */
+/* animation-duration:2s; */
+}
+
+#playerMove{
+height: 280px;
+width: 280px;
+margin-left: 120px;
+position: relative;
+animation-name: example;
+animation-duration:1.5s;
+}
+
+
 #playerImg{
 float: right;
 margin-top: 150px;
+
 }
+
+@keyframes example {
+  0%   { left:0px; top:0px;}
+  /* 25%  {background-color:yellow; left:250px; } */
+  50%  {left:370px; }
+  75%  { left:0px;}
+  100% {}
+}
+
 #player-hp{
 font-size: 20px;
 margin-top: 50px;
@@ -240,16 +265,11 @@ text-align: center;
 float: right;
 background-repeat: no-repeat;
 }
-#player{
-height: 280px;
-width: 280px;
 
-margin-left: 120px;
-}
 
-/*Här börjar Henrik css*/
+
 button {
-  background-color: lightgrey; /* Green */
+  background-color: lightgrey;
   border: 1px solid black;
   color: black;
   width: 100%;
@@ -270,11 +290,12 @@ button {
 }
 
 #playerNav {
+  margin: 0;
   background: lightgrey;
   display: grid;
   grid-template-columns: 15em auto 30em;
   grid-template-rows: auto;
-  height: 100%;
+  height: 1000px;
   grid-template-areas:
   "left center right"
   "left center right"
