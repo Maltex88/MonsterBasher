@@ -94,18 +94,30 @@ $(document).ready(() => {
     playerClass.innerText = "Class: "+ player.class +"";
     monstersKilled.innerText = "Enemys killed: "+ player.enemysKilled +""
   });
+
+function isThisAWarrior(){
+  if(player.class === "Warrior") {
+    return warriorMoves();
+}
+}
+
+function warriorMoves(){
+        document.getElementById("playerImg").src = "picture/knight_attack.gif";
+        document.getElementById('player').id = 'playerMove';
+  if(player.calss = "warrior"){
+      setTimeout(() => {
+          document.getElementById("playerImg").src = "picture/knight_idle.gif";
+          document.getElementById('playerMove').id = 'player';
+        }, 1000)
+      }
+}
+
+
+
   $('#attack1').click(function(){
     msgToPlayer();
     enemyAttacked1();
-document.getElementById("playerImg").src = "picture/knight_attack.gif";
-document.getElementById('player').id = 'playerMove';
-if(player.calss = "warrior"){
-  setTimeout(() => {
-  document.getElementById("playerImg").src = "picture/knight_idle.gif";
-  document.getElementById('playerMove').id = 'player';
-}, 1000)
-}
-
+     isThisAWarrior();
 
       if (isGameOver(enemy.hp)){
         enemyKilled();
@@ -131,6 +143,7 @@ if(player.calss = "warrior"){
   $('#attack2').click(function(){
     msgToPlayer();
     enemyAttacked2();
+    isThisAWarrior();
       if (isGameOver(enemy.hp)){
         enemyKilled();
         playerLvlUp();
@@ -152,6 +165,7 @@ if(player.calss = "warrior"){
   $('#attack3').click(function(){
     msgToPlayer();
     enemyAttacked3();
+    isThisAWarrior();
       if (isGameOver(enemy.hp)){
         enemyKilled();
         playerLvlUp();
@@ -173,6 +187,7 @@ if(player.calss = "warrior"){
   $('#attack4').click(function(){
     msgToPlayer();
     enemyAttacked4();
+    isThisAWarrior();
       if (isGameOver(enemy.hp)){
         enemyKilled();
         playerLvlUp();
