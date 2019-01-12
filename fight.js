@@ -35,6 +35,9 @@ let enemy = {
 
 /*click functions to load at start*/
 $(document).ready(() => {
+
+
+
   startFight = document.getElementById('startFight');
   fromTownToBattle = document.getElementById('fromTownToBattle')
   toTownFromBattle = document.getElementById('toTownFromBattle')
@@ -95,6 +98,8 @@ $(document).ready(() => {
     monstersKilled.innerText = "Enemys killed: "+ player.enemysKilled +""
   });
 
+
+
 function isThisAWarrior(){
   if(player.class === "Warrior") {
     return warriorMoves();
@@ -130,7 +135,9 @@ function warriorMoves(){
 
     attackDisable();
     setTimeout(() => {
+
       enemyAttack();
+
         if (isGameOver(player.hp)){
           thePlayerHaveDied();
           whenGameIsOver();
@@ -267,7 +274,8 @@ let monsterMakerMadness = () => {
         Abillity4: "Flee"
     },
     {
-       name: "Tiger",
+      Image: "url('picture/Bash_bransh_monster.gif')",
+       name: "Rotten rot",
        hp: 15,
        dmg: 10,
        exp: 50,
@@ -298,6 +306,7 @@ let monsterMakerMadness = () => {
   },
   {
      name: "Spider",
+     Image: "url('picture/spoooder.gif')",
      hp: 5,
      dmg: 5,
      exp: 5,
@@ -311,6 +320,8 @@ let monsterMakerMadness = () => {
   let rand = monsterList[Math.floor(Math.random() * monsterList.length)];
 
   //for(i = 0; i < monsterList.length; i++)
+
+    document.getElementById("enermy").style.backgroundImage = rand.Image;
     enemy.name = rand.name;
     enemy.hp = rand.hp;
     enemy.dmg = rand.dmg;
@@ -383,8 +394,10 @@ let whenGameIsOver = () => {
 };
 let fightMoreEnemys = () => {
    monsterMakerMadness();
+
 }; //fight another random enemy
 const printToScreen = () => {
+
 
   document.getElementById('enemy-hp').innerText =
   enemy.name +" "+ enemy.hp +" Hp";
