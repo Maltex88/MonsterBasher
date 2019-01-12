@@ -32,20 +32,20 @@ let enemy = {
   loot: [], //loot system, random 1-100
 }
 /*Player / enemy Object*/
-
+  /*is this correct?*/
 /*click functions to load at start*/
 $(document).ready(() => {
   startFight = document.getElementById('startFight');
   fromTownToBattle = document.getElementById('fromTownToBattle')
   toTownFromBattle = document.getElementById('toTownFromBattle')
   playerNav = document.getElementById('playerNav')
-
+dwadwa
   playerLvl = document.getElementById('lvl')
   playerName = document.getElementById('characterBioName')
   playerClass = document.getElementById('class')
   monstersKilled = document.getElementById('monstersKilled')
   startFight.innerText = "" + "Go into Battle!!" + "";
-  
+
   $('#createCharacter').click(function(){
 
     player.name = $("#inputName").val();
