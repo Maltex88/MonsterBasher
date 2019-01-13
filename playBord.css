@@ -163,7 +163,7 @@ display: flex;
 
 }
 
-.playerHub .spellTap  button{
+.playerHub .spellTap   button{
 width: 50%;
 height: 50%;
 float: right;
@@ -175,6 +175,14 @@ font-size: 20px;
 .playerHub .spellTap button:hover{
 background-color: snow;
 
+}
+.spellTapInventory  * {
+  width: 50%;
+  height: 50%;
+  float: right;
+  background-color:tan;
+  border: solid 2px;
+  font-size: 20px;
 }
 
 /* The area there are standing face to face */
