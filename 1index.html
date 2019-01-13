@@ -12,9 +12,9 @@
 <body>
   <!-- This section is for character name -->
   <div id="charCreateAndBattle">
-    <audio autoplay>
+    <!-- <audio autoplay>
       <source src="Sound/Medieval Music - Black Wolfs Inn.mp3" >
-      </audio>
+      </audio> -->
     <div id="charactersNameMeny">
     <input type="text" placeholder="Select your character name" id="inputName"></input>
     <button id="createCharacter">Create Character</button>
@@ -57,11 +57,27 @@
     <div class="playerHub">
 
       <div class="spellTap">
-        <button id="attack1"></button>
-        <button id="attack2"></button>
-        <button id="attack3"></button>
-        <button id="attack4"></button>
-      </div>
+
+          <button id="attack2"></button>
+          <button id="attack1"></button>
+          <button id="items"></button>
+          <button id="attack3"></button>
+
+  <!-- Henriks kod för att placera om knappar på snyggt sätt när funktioner körs -->
+          <button id="newFight" hidden="true">Fight more monsters!</button>
+          <button id="toTownFromBattle" hidden="true">Back to town!</button>
+          <button  id="log-out-btn" hidden="true">logout</button>
+
+
+          <button id="inventoryHp">Hp Potion</button>
+          <button id="inventoryMana">Mana Potion</button>
+          <button id="Back">Back</button>
+          <button id="inventory5">Use item</button>
+        <!-- Henriks kod för att placera om knappar på snyggt sätt när funktioner körs -->
+    </div>
+
+
+
       <div id="playerName">
         <span id="player-hp"></span>
         <p>hej</p>
@@ -72,9 +88,8 @@
         <h2 id="msgToPlayeradvancing"></h2>
       </div>
       <div>
-        <button id="newFight" hidden="true">Fight more monsters!</button>
-        <button id="toTownFromBattle" hidden="true">Back to town!</button>
-        <button  id="log-out-btn">logout</button>
+        <!-- <button id="newFight" hidden="true">Fight more monsters!</button> -->
+
       </div>
       </div>
     </div>
