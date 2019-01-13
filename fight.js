@@ -35,6 +35,9 @@ let enemy = {
 
 /*click functions to load at start*/
 $(document).ready(() => {
+
+
+
   startFight = document.getElementById('startFight');
   fromTownToBattle = document.getElementById('fromTownToBattle')
   toTownFromBattle = document.getElementById('toTownFromBattle')
@@ -45,7 +48,7 @@ $(document).ready(() => {
   playerClass = document.getElementById('class')
   monstersKilled = document.getElementById('monstersKilled')
   startFight.innerText = "" + "Go into Battle!!" + "";
-  
+
   $('#createCharacter').click(function(){
 
     player.name = $("#inputName").val();
@@ -94,9 +97,33 @@ $(document).ready(() => {
     playerClass.innerText = "Class: "+ player.class +"";
     monstersKilled.innerText = "Enemys killed: "+ player.enemysKilled +""
   });
+
+
+
+function isThisAWarrior(){
+  if(player.class === "Warrior") {
+    return warriorMoves();
+}
+}
+
+function warriorMoves(){
+        document.getElementById("playerImg").src = "picture/knight_attack.gif";
+        document.getElementById('player').id = 'playerMove';
+  if(player.calss = "warrior"){
+      setTimeout(() => {
+          document.getElementById("playerImg").src = "picture/knight_idle.gif";
+          document.getElementById('playerMove').id = 'player';
+        }, 1000)
+      }
+}
+
+
+
   $('#attack1').click(function(){
     msgToPlayer();
     enemyAttacked1();
+     isThisAWarrior();
+
       if (isGameOver(enemy.hp)){
         enemyKilled();
         playerLvlUp();
@@ -104,20 +131,26 @@ $(document).ready(() => {
         fightMoreEnemys();
         return;
       }
+
+
     attackDisable();
     setTimeout(() => {
+
       enemyAttack();
+
         if (isGameOver(player.hp)){
           thePlayerHaveDied();
           whenGameIsOver();
           return;
         }
+
       attackEnable();
       }, 1500);
   });
   $('#attack2').click(function(){
     msgToPlayer();
     enemyAttacked2();
+    isThisAWarrior();
       if (isGameOver(enemy.hp)){
         enemyKilled();
         playerLvlUp();
@@ -139,6 +172,7 @@ $(document).ready(() => {
   $('#attack3').click(function(){
     msgToPlayer();
     enemyAttacked3();
+    isThisAWarrior();
       if (isGameOver(enemy.hp)){
         enemyKilled();
         playerLvlUp();
@@ -160,6 +194,7 @@ $(document).ready(() => {
   $('#attack4').click(function(){
     msgToPlayer();
     enemyAttacked4();
+    isThisAWarrior();
       if (isGameOver(enemy.hp)){
         enemyKilled();
         playerLvlUp();
@@ -178,35 +213,35 @@ $(document).ready(() => {
       attackEnable();
       }, 1500);
   });
-  $('#startFight, #newFight, #fromTownToBattle').click(function(){
-      toTownFromBattle.hidden = true;
-      $('#playerNav').hide();
-      charCreateAndBattle.hidden = false;
-      playerNav.hidden = true;
-      msgToPlayeradvancing.innerText = "";
-      goToTown.hidden = true;
-      attackEnable();
-      monsterMakerMadness();
-      msgToPlayerAttacked.innerText = "";
-      msgToPlayerAttack.innerText = "";
-      newFight.hidden = true;
-      selectedClass.innerText = "";
-      charactersclassMeny.hidden = true;
-      charactersNameMeny.hidden = true;
-      printToScreen();
-      contanierHidden.hidden = false;
-      // fightBox.hidden = false;
-      startFight.hidden = true;
-      let attack1 =  document.getElementById('attack1');
-      let attack2 = document.getElementById('attack2');
-      let attack3 = document.getElementById('attack3');
-      let attack4 = document.getElementById('attack4');
-      //let newFightButton = document.getElementById('newFight')
-      attack1.innerText = ""+ player.Abillity1 +"";
-      attack2.innerText = ""+ player.Abillity2 +"";
-      attack3.innerText = ""+ player.Abillity3 +"";
-      attack4.innerText = ""+ player.Abillity4 +"";
-  });
+$('#startFight, #newFight, #fromTownToBattle').click(function(){
+  toTownFromBattle.hidden = true;
+  $('#playerNav').hide();
+  charCreateAndBattle.hidden = false;
+  playerNav.hidden = true;
+  msgToPlayeradvancing.innerText = "";
+  goToTown.hidden = true;
+  attackEnable();
+  monsterMakerMadness();
+  msgToPlayerAttacked.innerText = "";
+  msgToPlayerAttack.innerText = "";
+  newFight.hidden = true;
+  selectedClass.innerText = "";
+  charactersclassMeny.hidden = true;
+  charactersNameMeny.hidden = true;
+  printToScreen();
+  contanierHidden.hidden = false;
+  // fightBox.hidden = false;
+  startFight.hidden = true;
+  let attack1 =  document.getElementById('attack1');
+  let attack2 = document.getElementById('attack2');
+  let attack3 = document.getElementById('attack3');
+  let attack4 = document.getElementById('attack4');
+  //let newFightButton = document.getElementById('newFight')
+  attack1.innerText = ""+ player.Abillity1 +"";
+  attack2.innerText = ""+ player.Abillity2 +"";
+  attack3.innerText = ""+ player.Abillity3 +"";
+  attack4.innerText = ""+ player.Abillity4 +"";
+});
   printToScreen();
 })
 /*click functions to load at start*/
@@ -239,7 +274,8 @@ let monsterMakerMadness = () => {
         Abillity4: "Flee"
     },
     {
-       name: "Tiger",
+      Image: "url('picture/Bash_bransh_monster.gif')",
+       name: "Rotten rot",
        hp: 15,
        dmg: 10,
        exp: 50,
@@ -270,6 +306,7 @@ let monsterMakerMadness = () => {
   },
   {
      name: "Spider",
+     Image: "url('picture/spoooder.gif')",
      hp: 5,
      dmg: 5,
      exp: 5,
@@ -283,6 +320,8 @@ let monsterMakerMadness = () => {
   let rand = monsterList[Math.floor(Math.random() * monsterList.length)];
 
   //for(i = 0; i < monsterList.length; i++)
+
+    document.getElementById("enermy").style.backgroundImage = rand.Image;
     enemy.name = rand.name;
     enemy.hp = rand.hp;
     enemy.dmg = rand.dmg;
@@ -355,8 +394,10 @@ let whenGameIsOver = () => {
 };
 let fightMoreEnemys = () => {
    monsterMakerMadness();
+
 }; //fight another random enemy
 const printToScreen = () => {
+
 
   document.getElementById('enemy-hp').innerText =
   enemy.name +" "+ enemy.hp +" Hp";
