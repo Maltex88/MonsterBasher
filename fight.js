@@ -2,6 +2,7 @@ let startFight;
 let fromTownToBattle;
 let toTownFromBattle;
 let playerNav;
+let enemysHp;
 let nextlvl = 100; //If you want to raise exp needed for lvl , raise this.
 /*Player / enemy Object*/
 let player = {
@@ -12,12 +13,11 @@ let player = {
   Abillity1: "",
   Abillity2: "",
   Abillity3: "",
-  Abillity4: "",
+  items: {},
   lvl: 1, //fixa ett lvlup system..
   exp: 0,
   enemysKilled: 0,
 }
-
 let enemy = {
   name: "",
   hp: 0,
@@ -33,18 +33,26 @@ let enemy = {
   loot: [], //loot system, random 1-100
 }
 
-
-// let objDiv = document.getElementById('verticalMenu');
-// objDiv.scrollTop = objDiv.scrollHeight;
-
+/*Player / enemy Object*/
 
 /*click functions to load at start*/
 $(document).ready(() => {
+
+
+  spellTapInventory = document.getElementById('spellTapInventory')
   startFight = document.getElementById('startFight');
   fromTownToBattle = document.getElementById('fromTownToBattle')
   toTownFromBattle = document.getElementById('toTownFromBattle')
+  logout = document.getElementById('log-out-btn')
   playerNav = document.getElementById('playerNav')
-
+  backToSpell = document.getElementById('Back')
+  /*testing inventory*/
+  hpPot = document.getElementById('inventoryHp')
+  manaPot = document.getElementById('inventoryMana')
+  back = document.getElementById('Back')
+  useItem = document.getElementById('inventory5')
+  /*testing inventory*/
+  /*testing*/
   playerLvl = document.getElementById('lvl')
   playerName = document.getElementById('characterBioName')
   playerClass = document.getElementById('class')
@@ -52,7 +60,6 @@ $(document).ready(() => {
   startFight.innerText = "" + "Go into Battle!!" + "";
 
   $('#createCharacter').click(function(){
-
     player.name = $("#inputName").val();
     charactersNameMeny.hidden = true;
     charactersclassMeny.hidden = false;
@@ -65,9 +72,10 @@ $(document).ready(() => {
     player.Abillity1 = "Hack";
     player.Abillity2 = "Slash";
     player.Abillity3 = "Slam";
-    player.Abillity4 = "Punch";
+    player.items = "Items";
     startFight.hidden = false;
     goToTown.hidden = false;
+    enemysHp = enemy.hp;
   });
   $('#selectCharacterClassMage').click(function(){
     selectedClass.innerText = "You have selected the wise Mage"
@@ -76,9 +84,10 @@ $(document).ready(() => {
     player.Abillity1 = "Fire boll";
     player.Abillity2 = "Ice Blast";
     player.Abillity3 = "Lightning bolt";
-    player.Abillity4 = "Staff Bash";
+    player.items = "Items";
     startFight.hidden = false;
     goToTown.hidden = false;
+
   });
   $('#selectCharacterClassArcher').click(function(){
     selectedClass.innerText = "You have selected the agile Archer"
@@ -87,9 +96,11 @@ $(document).ready(() => {
     player.Abillity1 = "Flame Arrow";
     player.Abillity2 = "Stun Arrow";
     player.Abillity3 = "Piercing Arrow";
-    player.Abillity4 = "Assasination Strike";
+    player.items = "Items";
     startFight.hidden = false;
     goToTown.hidden = false;
+
+
   });
   $('#goToTown, #toTownFromBattle').click(function(){
     charCreateAndBattle.hidden = true;
@@ -98,27 +109,30 @@ $(document).ready(() => {
     playerLvl.innerText = "Lvl: "+ player.lvl +"";
     playerClass.innerText = "Class: "+ player.class +"";
     monstersKilled.innerText = "Enemys killed: "+ player.enemysKilled +""
+
   });
 
+  $('#Back').click(function(){
+    spellsShow();
+    itemsHide();
+  });
 
-
-function isThisAWarrior(){
-  if(player.class === "Warrior") {
-    return warriorMoves();
-}
-}
-
-function warriorMoves(){
-    document.getElementById("playerImg").src = "picture/knight_attack.gif";
-    document.getElementById('player').id = 'playerMove';
-    if(player.class = "warrior"){
-        setTimeout(() => {
-            document.getElementById("playerImg").src = "picture/knight_idle.gif";
-            document.getElementById('playerMove').id = 'player';
-        }, 1000);
+  function isThisAWarrior(){
+    if(player.class === "Warrior") {
+      return warriorMoves();
     }
-}
+  }
 
+  function warriorMoves(){
+      document.getElementById("playerImg").src = "picture/knight_attack.gif";
+      document.getElementById('player').id = 'playerMove';
+      if(player.class = "warrior"){
+          setTimeout(() => {
+              document.getElementById("playerImg").src = "picture/knight_idle.gif";
+              document.getElementById('playerMove').id = 'player';
+          }, 1000)
+      }
+  }
   $('#attack1').click(function(){
     msgToPlayer();
     enemyAttacked1();
@@ -135,6 +149,7 @@ function warriorMoves(){
 
     attackDisable();
     setTimeout(() => {
+
       enemyAttack();
 
         if (isGameOver(player.hp)){
@@ -155,6 +170,7 @@ function warriorMoves(){
         playerLvlUp();
         whenGameIsOver();
         fightMoreEnemys();
+        items.hidden = true;
         return;
       }
     attackDisable();
@@ -168,7 +184,6 @@ function warriorMoves(){
       attackEnable();
       }, 1500);
   });
-
   $('#attack3').click(function(){
     msgToPlayer();
     enemyAttacked3();
@@ -178,6 +193,7 @@ function warriorMoves(){
         playerLvlUp();
         whenGameIsOver();
         fightMoreEnemys();
+        items.hidden = true;
         return;
       }
     attackDisable();
@@ -191,81 +207,98 @@ function warriorMoves(){
       attackEnable();
       }, 1500);
   });
-  $('#attack4').click(function(){
-    msgToPlayer();
-    enemyAttacked4();
-    isThisAWarrior();
-      if (isGameOver(enemy.hp)){
-        enemyKilled();
-        playerLvlUp();
-        whenGameIsOver();
-        fightMoreEnemys();
-        return;
-      }
-    attackDisable();
-    setTimeout(() => {
-      enemyAttack();
-        if (isGameOver(player.hp)){
-          thePlayerHaveDied();
-          whenGameIsOver();
-          return;
-        }
-      attackEnable();
-      }, 1500);
+  $('#items').click(function(){
+    spellsHidden();
+    itemsShow();
+    console.log(enemysHp)
+    console.log(enemy);
+    newFight.hidden = true;
+    toTownFromBattle.hidden = true;
+    logout.hidden = true;
+
   });
-$('#startFight, #newFight, #fromTownToBattle').click(function(){
-  toTownFromBattle.hidden = true;
-  $('#playerNav').hide();
-  charCreateAndBattle.hidden = false;
-  playerNav.hidden = true;
-  msgToPlayeradvancing.innerText = "";
-  goToTown.hidden = true;
-  attackEnable();
-  monsterMakerMadness();
-  msgToPlayerAttacked.innerText = "";
-  msgToPlayerAttack.innerText = "";
-  newFight.hidden = true;
-  selectedClass.innerText = "";
-  charactersclassMeny.hidden = true;
-  charactersNameMeny.hidden = true;
-  printToScreen();
-  contanierHidden.hidden = false;
-  // fightBox.hidden = false;
-  startFight.hidden = true;
-  let attack1 =  document.getElementById('attack1');
-  let attack2 = document.getElementById('attack2');
-  let attack3 = document.getElementById('attack3');
-  let attack4 = document.getElementById('attack4');
-  //let newFightButton = document.getElementById('newFight')
-  attack1.innerText = ""+ player.Abillity1 +"";
-  attack2.innerText = ""+ player.Abillity2 +"";
-  attack3.innerText = ""+ player.Abillity3 +"";
-  attack4.innerText = ""+ player.Abillity4 +"";
+  $('#startFight, #newFight, #fromTownToBattle').click(function(){
+    spellsShow();
+    itemsHide();
+    battleChanges();
+    attackEnable();
+    monsterMakerMadness();
+    printToScreen();
 });
+
   printToScreen();
 })
 /*click functions to load at start*/
 
-
-// When a enemy die --------------------->
-// function witchMonster(){
-//     if()
-// }
-function enemyDeath(){
-  if(enemy.name === 'Spider'){
-document.getElementById("enermy").style.backgroundImage = "url('picture/spoooderDie.gif')"
-  }
-  return
-}
-
-
 /*functions*/
+/*display element functions*/
+let battleChanges = () => {
+  charCreateAndBattle.hidden = false;
+  msgToPlayeradvancing.innerText = "";
+  msgToPlayerAttacked.innerText = "";
+  msgToPlayerAttack.innerText = "";
+  selectedClass.innerText = "";
+  newFight.hidden = true;
+  goToTown.hidden = true;
+  playerNav.hidden = true;
+  charactersclassMeny.hidden = true;
+  charactersNameMeny.hidden = true;
+  startFight.hidden = true;
+  toTownFromBattle.hidden = true;
+  contanierHidden.hidden = false;
+  let attack1 =  document.getElementById('attack1');
+  let attack2 = document.getElementById('attack2');
+  let attack3 = document.getElementById('attack3');
+  let items = document.getElementById('items');
+  attack1.innerText = ""+ player.Abillity1 +"";
+  attack2.innerText = ""+ player.Abillity2 +"";
+  attack3.innerText = ""+ player.Abillity3 +"";
+  items.innerText = ""+ player.items +"";
+}
+let spellsHidden = () => {
+  attack1.hidden = true;
+  attack2.hidden = true;
+  attack3.hidden = true;
+  items.hidden = true;
+
+}
+let spellsShow = () => {
+  attack1.hidden = false;
+  attack2.hidden = false;
+  attack3.hidden = false;
+  items.hidden = false;
+  logout.hidden = true;
+}
+let itemsHide = () => {
+  manaPot.hidden = true;
+  hpPot.hidden = true;
+  useItem.hidden = true;
+  back.hidden = true;
+  logout.hidden = true;
+}
+let itemsShow = () => {
+  manaPot.hidden = false
+  hpPot.hidden = false
+  useItem.hidden = false
+  back.hidden = false
+  logout.hidden = true;
+}
+let combatDone = () => {
+  newFight.hidden = false;
+  attack1.hidden = true;
+  attack2.hidden = true;
+  attack3.hidden = true;
+  back.hidden = true;
+  items.hidden = true;
+  logout.hidden = false;
+  toTownFromBattle.hidden = false;
+}
 let enemyAttack = () => {
   let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
   player.hp -= enemyAttack;
-  $('#verticalMenu').append(` <li> the enemy ${enemy.name}  strikes you for ${enemyAttack} damage!</li> `);
-  // msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
+  msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
   printToScreen();
+  /*display element functions*/
 } //calculates enemy attack
 let playerLvlUp = () => {
   if (player.exp >= nextlvl) {
@@ -345,6 +378,8 @@ let monsterMakerMadness = () => {
     enemy.enemyAbillity2 = rand.enemyAbillity2
     enemy.enemyAbillity3 = rand.enemyAbillity3
     enemy.enemyAbillity4 = rand.enemyAbillity4
+
+     enemysHp = enemy.hp;
 }; //list of monsters , save enemy as a random monster with given stats
 let enemyAttacked1 = () => {
   let playerAttack = Math.floor(Math.random()  * player.dmg + 5); //maybe make a function that calculates player dmg based on class.
@@ -380,6 +415,9 @@ let enemyKilled = () => {
   document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
   $('#verticalMenu').append(`<li>You have slain the ${enemy.name}, the ${enemy.name } was worth ${enemy.exp} damage!</li>`)
   // messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
+  enemysHp = 0;
+  /*kod här */
+  combatDone();
 
   newFight.hidden = false;
   toTownFromBattle.hidden = false;
@@ -414,12 +452,10 @@ let whenGameIsOver = () => {
 }
 };
 let fightMoreEnemys = () => {
+
    monsterMakerMadness();
 
 }; //fight another random enemy
-
-
-
 const printToScreen = () => {
 
 
@@ -431,9 +467,8 @@ const printToScreen = () => {
 
 
   if (isGameOver(player.hp))
-    document.getElementById('player-hp').innerText =  player.name + " 0 Hp ";
+    document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
 
   if (isGameOver(enemy.hp))
     document.getElementById('enemy-hp').innerText =  enemy.name +" "+ "0" +" Hp";
-
 };
