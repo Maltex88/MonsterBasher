@@ -18,6 +18,7 @@ let player = {
   exp: 0,
   enemysKilled: 0,
 }
+
 let enemy = {
   name: "",
   hp: 0,
