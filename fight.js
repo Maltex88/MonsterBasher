@@ -114,11 +114,9 @@ function warriorMoves(){
         setTimeout(() => {
             document.getElementById("playerImg").src = "picture/knight_idle.gif";
             document.getElementById('playerMove').id = 'player';
-        }, 1000)
+        }, 1000);
     }
 }
-
-
 
   $('#attack1').click(function(){
     msgToPlayer();
@@ -169,6 +167,7 @@ function warriorMoves(){
       attackEnable();
       }, 1500);
   });
+
   $('#attack3').click(function(){
     msgToPlayer();
     enemyAttacked3();
@@ -437,4 +436,3 @@ const printToScreen = () => {
     document.getElementById('enemy-hp').innerText =  enemy.name +" "+ "0" +" Hp";
 
 };
-/*functions*/
