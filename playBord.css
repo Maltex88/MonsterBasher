@@ -176,7 +176,7 @@ font-size: 20px;
 background-color: snow;
 
 }
-.spellTapInventory  * {
+.spellTapInventory > * {
   width: 50%;
   height: 50%;
   float: right;
@@ -221,7 +221,7 @@ display: inline-flex;
 height: 350px;
 width: 280px;
 /* background-image: url("picture/spoooder.gif");  */
-margin-left: 220px;
+margin-left: 470px;
 margin-top: 30px;
 }
 
@@ -231,13 +231,21 @@ margin-top: 30px;
 100%{opacity: 1;}
 }
 
+
+#verticalMenu{
+  margin-bottom: 20px;
+  height: 120px;
+  border: solid black;
+  background-color: #413126;
+  overflow-y:scroll;
+  color: snow;
+
+}
 /* players css ---------------------*/
 #msgToPlayerAttack{
-background-color: #613915;
 color: snow;
 
-width: 500px
-font-size: 15px;
+font-size: 20px;
 }
 #msgToPlayeradvancing{
   background-color: black;

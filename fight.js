@@ -115,8 +115,24 @@ $(document).ready(() => {
   $('#Back').click(function(){
     spellsShow();
     itemsHide();
-
   });
+
+  function isThisAWarrior(){
+    if(player.class === "Warrior") {
+      return warriorMoves();
+    }
+  }
+
+  function warriorMoves(){
+      document.getElementById("playerImg").src = "picture/knight_attack.gif";
+      document.getElementById('player').id = 'playerMove';
+      if(player.class = "warrior"){
+          setTimeout(() => {
+              document.getElementById("playerImg").src = "picture/knight_idle.gif";
+              document.getElementById('playerMove').id = 'player';
+          }, 1000)
+      }
+  }
   $('#attack1').click(function(){
     msgToPlayer();
     enemyAttacked1();
@@ -210,21 +226,6 @@ $(document).ready(() => {
     printToScreen();
 });
 
-function isThisAWarrior(){
-  if(player.class === "Warrior") {
-    return warriorMoves();
-}
-}
-function warriorMoves(){
-        document.getElementById("playerImg").src = "picture/knight_attack.gif";
-        document.getElementById('player').id = 'playerMove';
-  if(player.calss = "warrior"){
-      setTimeout(() => {
-          document.getElementById("playerImg").src = "picture/knight_idle.gif";
-          document.getElementById('playerMove').id = 'player';
-        }, 1000)
-      }
-}
   printToScreen();
 })
 /*click functions to load at start*/
@@ -341,7 +342,8 @@ let monsterMakerMadness = () => {
       Abillity4: "Flee"
   },
   {
-     name: "Hawk",
+     name: "Crow",
+     Image: "url('picture/Bierdee.png')",
      hp: 15,
      dmg: 20,
      exp: 30,
@@ -353,7 +355,7 @@ let monsterMakerMadness = () => {
   {
      name: "Spider",
      Image: "url('picture/spoooder.gif')",
-     hp: 5,
+     hp: 50,
      dmg: 5,
      exp: 5,
      Abillity1: "Bite",
@@ -382,37 +384,43 @@ let monsterMakerMadness = () => {
 let enemyAttacked1 = () => {
   let playerAttack = Math.floor(Math.random()  * player.dmg + 5); //maybe make a function that calculates player dmg based on class.
   enemy.hp -= playerAttack;
-  messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity1 + " ability and did "+ playerAttack +" damage!"
+  $('#verticalMenu').append(`<li>You strike the ${enemy.name}  with your ${player.Abillity1} ability and did ${playerAttack} damage!</li>`)
+  // messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity1 + " ability and did "+ playerAttack +" damage!"
   printToScreen();
 } //attack function spell 1
 let enemyAttacked2 = () => {
   let playerAttack = Math.floor(Math.random()  * player.dmg + 5); //maybe make a function that calculates player dmg based on class.
   enemy.hp -= playerAttack;
-  messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity2 + " ability and did "+ playerAttack +" damage!"
+  $('#verticalMenu').append(`<li>You strike the ${enemy.name}  with your ${player.Abillity2} ability and did ${playerAttack} damage!</li>`)
+  // messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity2 + " ability and did "+ playerAttack +" damage!"
   printToScreen();
 } //attack function spell 2
 let enemyAttacked3 = () => {
   let playerAttack = Math.floor(Math.random()  * player.dmg + 5); //maybe make a function that calculates player dmg based on class.
   enemy.hp -= playerAttack;
-  messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity3 + " ability and did "+ playerAttack +" damage!"
+  $('#verticalMenu').append(`<li>You strike the ${enemy.name}  with your ${player.Abillity3} ability and did ${playerAttack} damage!</li>`)
+  // messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity3 + " ability and did "+ playerAttack +" damage!"
   printToScreen();
 } //attack function spell 3
 let enemyAttacked4 = () => {
   let playerAttack = Math.floor(Math.random()  * player.dmg + 5); //maybe make a function that calculates player dmg based on class.
   enemy.hp -= playerAttack;
-  messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity4 + " ability and did "+ playerAttack +" damage!"
+  $('#verticalMenu').append(`<li>You strike the ${enemy.name}  with your ${player.Abillity4} ability and did ${playerAttack} damage!</li>`)
+  // messageToPlayerAttack.innerText = "You strike the "+ enemy.name +" with your " + player.Abillity4 + " ability and did "+ playerAttack +" damage!"
   printToScreen();
 } //attack function spell 4
 let enemyKilled = () => {
   player.exp += enemy.exp;
   player.enemysKilled += 1;
   document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
-  messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
+  $('#verticalMenu').append(`<li>You have slain the ${enemy.name}, the ${enemy.name } was worth ${enemy.exp} damage!</li>`)
+  // messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
   enemysHp = 0;
   /*kod här */
   combatDone();
 
-
+  newFight.hidden = false;
+  toTownFromBattle.hidden = false;
 }; //when enemy dies , give player exp and display msg
 let msgToPlayer = () => {
   messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
