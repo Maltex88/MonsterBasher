@@ -1,10 +1,11 @@
 body{
-  /*background-image: url("picture/background_img .png"); visar du background i body blir det svårare med att få till playerhub*/
-  /* transition: .6s sease;
-  animation: change 10s infinite; */
  font-family: cursive;
  }
+
+
+ /* Character creation stats here--------------- */
 #charCreateAndBattle {
+
   background-image: url("picture/background_img .png");
   min-height: 100%;
   min-width: 1500px;
@@ -20,18 +21,7 @@ body{
  }
 
 
-/* button{
-   font-family: cursive;
- }*/
 
- /*@keyframes change{
- 0%  { background-color:#1a1919}
- 25% { background-color:#be000e}
- 50% { background-color:#f6f4f2}
- 75% { background-color:#002b6c}
- 100%{ background-color:#011e2e}
-} */
-/* The in log scren  --------------*/
 
 
 #charactersNameMeny{
@@ -45,20 +35,20 @@ margin-top: 100px;
 border-radius: 15px 15px;
 border: solid ;
 opacity: .9;
-/* display: none; */
 }
 
 #inputName{
+font-family: cursive;
 border-radius: 15px 15px;
 width: 200px;
 height: 30px;
 text-align: center;
-font-size: 20px;
+font-size: 18px;
 border: solid;
 margin-top: 200px;
 margin-left: 100px;
-}
 
+}
 
 #createCharacter{
 margin-left: 130px;
@@ -66,7 +56,6 @@ border-radius: 15px 15px;
 width: 150px;
 height: 20px;
 font-size: 15px;
-
 }
 
 
@@ -80,7 +69,7 @@ font-size: 15px;
 #selectedName{
 font-size: 30px;
 letter-spacing: 5px;
-margin-left: 47px;
+margin-left: 10%;
 color: snow;
 }
 .startOrTown{
@@ -88,7 +77,7 @@ color: snow;
 }
 #selectedClass{
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 
@@ -107,18 +96,19 @@ margin-left: 35px;
 #charactersclassMeny{
 width: 70%;
 height: 700px;
-background-color: #7f7e7d;
+background-color: #465368;
 margin-left: 200px;
 border: solid 5px;
 position: relative;
  /* display: none; */
 }
-
-#charactersclassMeny > button:hover {
-  background-color: #cdb39a;
-
+#charactersclassMeny  button{
+  font-family: cursive;
 }
-#charactersclassMeny > button{
+.classButton > button:hover {
+  background-color: #cdb39a;
+}
+.classButton > button{
   background-color: #924702;
   font-size: 20px;
   width: 200px;
@@ -128,13 +118,29 @@ position: relative;
   margin: 20px;
   margin-left: 90px;
   margin-top: 50px;
-
 }
+
+#TownOrFight> button:hover {
+  background-color: #cdb39a;
+}
+
+#TownOrFight > button{
+  background-color: #924702;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  /* border-radius: 15px 15px; */
+  border: 0.4px solid;
+  margin: 20px;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+
 /* the playing background */
 #contanierHidden{
 width: 100%;
 height: 700px;
-background-image: url("picture/CombadFace.png");
+background-image: url("picture/comBadbFace.jpg");
 border: solid 5px;
 
 
@@ -157,7 +163,7 @@ display: flex;
 
 }
 
-.playerHub .spellTap  button{
+.playerHub .spellTap   button{
 width: 50%;
 height: 50%;
 float: right;
@@ -170,6 +176,14 @@ font-size: 20px;
 background-color: snow;
 
 }
+.spellTapInventory > * {
+  width: 50%;
+  height: 50%;
+  float: right;
+  background-color:tan;
+  border: solid 2px;
+  font-size: 20px;
+}
 
 /* The area there are standing face to face */
 .faceOff {
@@ -181,9 +195,9 @@ position: relative;
 
 /* everthing that have to do with the enemy */
 #msgToPlayerAttacked{
-  background-color: black;
-  color: red;
-  border: 1px dotted red;
+  background-color: #613915;
+  color: snow;
+  border-top:  2px solid black;
   width: 500px;
   font-size: 15px;
 }
@@ -206,10 +220,10 @@ background-repeat: no-repeat;
 display: inline-flex;
 height: 350px;
 width: 280px;
-background-image: url('picture/Bash_bransh_monster.gif');
-margin-left: 220px;
+/* background-image: url("picture/spoooder.gif");  */
+margin-left: 470px;
+margin-top: 30px;
 }
-
 
 @keyframes blink{
 0%{opacity: 0;}
@@ -217,23 +231,73 @@ margin-left: 220px;
 100%{opacity: 1;}
 }
 
+
+#verticalMenu{
+  margin-bottom: 20px;
+  height: 120px;
+  border: solid black;
+  background-color: #413126;
+  overflow-y:scroll;
+  color: snow;
+
+}
 /* players css ---------------------*/
 #msgToPlayerAttack{
-background-color: black;
-color: red;
+color: snow;
 
-width: 500px
-font-size: 15px;
+font-size: 20px;
 }
 #msgToPlayeradvancing{
   background-color: black;
   color: red;
-  
+
+}
+
+#player{
+height: 280px;
+width: 280px;
+margin-left: 120px;
+position: relative;
+/* animation-name: example; */
+/* animation-duration:2s; */
+}
+#playerHurt{
+height: 280px;
+width: 280px;
+margin-left: 120px;
+position: relative;
+animation-name: blink;
+animation-duration:2s;
+}
+
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+}
+
+#playerMove{
+height: 280px;
+width: 280px;
+margin-left: 120px;
+position: relative;
+animation-name: example;
+animation-duration:1.5s;
+}
+
+@keyframes example {
+  0%   { left:0px; top:0px;}
+  /* 25%  {background-color:yellow; left:250px; } */
+  50%  {left:370px; }
+  75%  { left:0px;}
+  100% {}
 }
 #playerImg{
 float: right;
 margin-top: 150px;
+
 }
+
 #player-hp{
 font-size: 20px;
 margin-top: 50px;
@@ -249,12 +313,7 @@ text-align: center;
 float: right;
 background-repeat: no-repeat;
 }
-#player{
-height: 280px;
-width: 280px;
 
-margin-left: 120px;
-}
 
 
 button {
