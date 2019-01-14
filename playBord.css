@@ -69,7 +69,7 @@ font-size: 15px;
 #selectedName{
 font-size: 30px;
 letter-spacing: 5px;
-margin-left: 5%;
+margin-left: 10%;
 color: snow;
 }
 .startOrTown{
@@ -339,6 +339,7 @@ button {
 
 #playerNav {
   margin: 0;
+  display: none;
   background: lightgrey;
   display: grid;
   grid-template-columns: 15em auto 30em;
