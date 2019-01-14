@@ -56,6 +56,17 @@ let enemy_obj_state;
 
 /*click functions to load at start*/
 $(document).ready(() => {
+  /**
+   *  playerName.innerText = ""+ player.name +"";
+   playerLvl.innerText = "Lvl: "+ player.lvl +"";
+   playerClass.innerText = "Class: "+ player.class +"";
+   monstersKilled.innerText = "Enemys killed: "+ player.enemysKilled +""
+   * **/
+  let playerName;
+  let playerLvl;
+  let playerClass;
+  let monstersKilled;
+
   save_btn = document.getElementById('save-game-btn');
 
   let saved_char_btn = document.getElementById('btn-saved-char');
@@ -106,6 +117,7 @@ $(document).ready(() => {
   /*testing inventory*/
   /*testing*/
   playerLvl = document.getElementById('lvl')
+  console.log(playerLvl.innerText);
   playerName = document.getElementById('characterBioName')
   playerClass = document.getElementById('class')
   monstersKilled = document.getElementById('monstersKilled')
@@ -154,6 +166,8 @@ $(document).ready(() => {
 
 
   });
+  let test = document.getElementById("playerNav");
+  console.log(test);
   $('#goToTown, #toTownFromBattle').click(function(){
     charCreateAndBattle.hidden = true;
     $('#playerNav').show();
