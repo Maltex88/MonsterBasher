@@ -31,13 +31,14 @@ let enemy = {
   resistens: "",
   loot: [], //loot system, random 1-100
 }
-/*Player / enemy Object*/
+
+
+// let objDiv = document.getElementById('verticalMenu');
+// objDiv.scrollTop = objDiv.scrollHeight;
+
 
 /*click functions to load at start*/
 $(document).ready(() => {
-
-
-
   startFight = document.getElementById('startFight');
   fromTownToBattle = document.getElementById('fromTownToBattle')
   toTownFromBattle = document.getElementById('toTownFromBattle')
@@ -107,14 +108,14 @@ function isThisAWarrior(){
 }
 
 function warriorMoves(){
-        document.getElementById("playerImg").src = "picture/knight_attack.gif";
-        document.getElementById('player').id = 'playerMove';
-  if(player.calss = "warrior"){
-      setTimeout(() => {
-          document.getElementById("playerImg").src = "picture/knight_idle.gif";
-          document.getElementById('playerMove').id = 'player';
+    document.getElementById("playerImg").src = "picture/knight_attack.gif";
+    document.getElementById('player').id = 'playerMove';
+    if(player.class = "warrior"){
+        setTimeout(() => {
+            document.getElementById("playerImg").src = "picture/knight_idle.gif";
+            document.getElementById('playerMove').id = 'player';
         }, 1000)
-      }
+    }
 }
 
 
@@ -247,6 +248,9 @@ $('#startFight, #newFight, #fromTownToBattle').click(function(){
 
 
 // When a enemy die --------------------->
+// function witchMonster(){
+//     if()
+// }
 function enemyDeath(){
   if(enemy.name === 'Spider'){
 document.getElementById("enermy").style.backgroundImage = "url('picture/spoooderDie.gif')"
@@ -371,7 +375,6 @@ let enemyAttacked4 = () => {
   printToScreen();
 } //attack function spell 4
 let enemyKilled = () => {
-  enemyDeath();
   player.exp += enemy.exp;
   player.enemysKilled += 1;
   document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
