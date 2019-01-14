@@ -3,7 +3,8 @@ let fromTownToBattle;
 let toTownFromBattle;
 let playerNav;
 let enemysHp;
-let nextlvl = 100; //If you want to raise exp needed for lvl , raise this.
+let nextlvl = 100;
+let save_btn;//If you want to raise exp needed for lvl , raise this.
 /*Player / enemy Object*/
 let player = {
   name: "",
@@ -55,8 +56,8 @@ let enemy_obj_state;
 
 /*click functions to load at start*/
 $(document).ready(() => {
-  let save_btn = document.getElementById('save-game-btn');
-  let load_btn = document.getElementById('load-game-btn');
+  save_btn = document.getElementById('save-game-btn');
+
   let saved_char_btn = document.getElementById('btn-saved-char');
   let log_out_btn = document.getElementById('log-out-btn');
 
@@ -88,7 +89,7 @@ $(document).ready(() => {
   log_out_btn.addEventListener('click', mainApp.logout);
 
   saved_char_btn.addEventListener('click' , load_last_session);
-  load_btn.addEventListener('click', load_last_session);
+  /*load_btn.addEventListener('click', load_last_session);*/
 
   spellTapInventory = document.getElementById('spellTapInventory')
   startFight = document.getElementById('startFight');
@@ -292,6 +293,7 @@ let battleChanges = () => {
   newFight.hidden = true;
   goToTown.hidden = true;
   playerNav.hidden = true;
+  $('#playerNav').hide();
   charactersclassMeny.hidden = true;
   charactersNameMeny.hidden = true;
   startFight.hidden = true;
@@ -343,6 +345,7 @@ let combatDone = () => {
   items.hidden = true;
   logout.hidden = false;
   toTownFromBattle.hidden = false;
+  save_btn.hidden = false;
 }
 let enemyAttack = () => {
   let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);

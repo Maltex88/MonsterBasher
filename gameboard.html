@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="playBord.css">
 </head>
 <body>
-<div id="test"></div>
-<div id="note"></div>
+  <div id="test"></div>
+  <div id="note"></div>
 
 <!-- This section is for character name -->
     <div id="charCreateAndBattle">
@@ -45,8 +45,10 @@
             <button id="selectCharacterClassArcher">Archer</button>
             <div id="selectedClass"></div>
             <!-- This section is for The battle -->
+            <div id="TownOrFight">
             <button id="startFight" hidden="true" ></button>
             <button id="goToTown" hidden="true" >Go to town</button>
+            </div>
         </div>
 
 
@@ -56,9 +58,8 @@
         <div id="contanierHidden" hidden="true">
 
             <div class="faceOff">
-                <button  id="log-out-btn">Log Out</button>
-                <button  id="save-game-btn">Save Game</button>
-                <button  id="load-game-btn">View Last Player</button>
+
+
                 <div id="player">
                     <img src="picture/Hunter.gif" id="playerImg">
                 </div>
@@ -66,34 +67,52 @@
                     <div class="enemyHPBar">  <span id="enemy-hp"></span> </div>
                 </div>
             </div>
-            <div class="playerHub">
-                <div class="spellTap">  <button id="attack1"></button>
-                    <button id="attack2"></button>
-                    <button id="attack3"></button>
-                    <button id="attack4"></button>
 
+                <div class="playerHub">
 
+                  <div class="spellTap">
+
+                      <button id="attack2"></button>
+                      <button id="attack1"></button>
+                      <button id="items">Items</button>
+                      <button id="attack3"></button>
+
+              <!-- Henriks kod för att placera om knappar på snyggt sätt när funktioner körs -->
+                    <!-- when combat ends -->
+                      <button id="newFight" hidden="true">Fight more monsters!</button>
+                      <button id="toTownFromBattle" hidden="true">Back to town!</button>
+                      <button  id="log-out-btn" hidden="true">Log Out</button>
+                      <button  id="save-game-btn" hidden="true">Save Game</button>
+                      
+                      <!-- when combat ends -->
+                      <button id="inventoryHp">Hp Potion</button>
+                      <button id="inventoryMana">Mana Potion</button>
+                      <button id="Back">Back</button>
+                      <button id="inventory5">Use item</button>
+                    <!-- Henriks kod för att placera om knappar på snyggt sätt när funktioner körs -->
                 </div>
                 <div id="playerName">
-                    <span id="player-hp"></span>
-                    <div>
-                        <div id="msgToPlayerAttack"></div>
-                        <div id="msgToPlayerAttacked"></div>
-                        <h2 id="msgToPlayeradvancing"></h2>
-                    </div>
-                    <button id="newFight" hidden="true">Fight more monsters!</button>
-                </div>
-            </div>
-        </div>
+       <span id="player-hp"></span>
+       <p>hej</p>
+     </div>
+     <ul id="verticalMenu">
+     <div id="msgToPlayerAttack"></div>
+     <div id="msgToPlayerAttacked"></div>
+   </ul>
+     <h2 id="msgToPlayeradvancing"></h2>
+     <div>
+       <!-- <button id="newFight" hidden="true">Fight more monsters!</button> -->
+
+     </div>
         <!-- Här slutar kamphols kod-->
-    </div> <!-- Denna div gör att man kan display hidden på hela den första koden och ta display hidden false på koden nedan för att få fram
+    <div> <!-- Denna div gör att man kan display hidden på hela den första koden och ta display hidden false på koden nedan för att få fram
             playerhubben-->
 
     <!-- Go to town -->
 
 
 
-    <div id="playerNav" hidden="true">
+    <div id="playerNav">
         <div id="playerHubNav">
             <button id="exitButton">Game Meny</button>
             <div id="playerHubNavBox1">
