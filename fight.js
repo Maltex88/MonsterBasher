@@ -31,13 +31,64 @@ let enemy = {
   armor: "",
   resistens: "",
   loot: [], //loot system, random 1-100
-}
+};
+//------------------------------------------------------------------------
 
+let player_obj_state;
+let enemy_obj_state;
+
+
+
+//  <button id="btn-saved-char">Play as <span id="saved-char-name"></span></button>
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------
 /*Player / enemy Object*/
 
 /*click functions to load at start*/
 $(document).ready(() => {
+  let save_btn = document.getElementById('save-game-btn');
+  let load_btn = document.getElementById('load-game-btn');
+  let saved_char_btn = document.getElementById('btn-saved-char');
+  let log_out_btn = document.getElementById('log-out-btn');
 
+  function saveData(){
+    window.localStorage.setItem('playerObject',JSON.stringify(player));
+    window.localStorage.setItem('EnemyObject', JSON.stringify(enemy));
+  }
+  function load_last_session(){
+    player_obj_state  = JSON.parse(localStorage.getItem('playerObject'));
+    enemy_obj_state  = JSON.parse(localStorage.getItem('EnemyObject'));
+  //  document.getElementById('player-hp').innerText = player_obj_state.name +" Lvl "+ player_obj_state.lvl +" "+ player_obj_state.class +" "+ player_obj_state.hp  +" Hp";
+    player.name = player_obj_state.name;
+    player.class = player_obj_state.class;
+    player.hp = player_obj_state.hp;
+    player.dmg = player_obj_state.dmg;
+    player.Abillity1 = player_obj_state.Abillity1;
+    player.Abillity2 = player_obj_state.Abillity2;
+    player.Abillity3 = player_obj_state.Abillity3;
+    player.Abillity4 = player_obj_state.Abillity4;
+    player.lvl = player_obj_state.lvl;
+    player.exp = player_obj_state.exp;
+    player.img = player_obj_state.img;
+     console.log(player);
+  }
+
+
+
+  save_btn.addEventListener('click', saveData);
+  log_out_btn.addEventListener('click', mainApp.logout);
+
+  saved_char_btn.addEventListener('click' , load_last_session);
+  load_btn.addEventListener('click', load_last_session);
 
   spellTapInventory = document.getElementById('spellTapInventory')
   startFight = document.getElementById('startFight');
@@ -57,8 +108,8 @@ $(document).ready(() => {
   playerName = document.getElementById('characterBioName')
   playerClass = document.getElementById('class')
   monstersKilled = document.getElementById('monstersKilled')
+  startFight = document.getElementById('startFight');
   startFight.innerText = "" + "Go into Battle!!" + "";
-
   $('#createCharacter').click(function(){
     player.name = $("#inputName").val();
     charactersNameMeny.hidden = true;
@@ -217,7 +268,7 @@ $(document).ready(() => {
     logout.hidden = true;
 
   });
-  $('#startFight, #newFight, #fromTownToBattle').click(function(){
+  $('#startFight, #newFight, #fromTownToBattle, #btn-saved-char').click(function(){
     spellsShow();
     itemsHide();
     battleChanges();
@@ -312,7 +363,7 @@ let monsterMakerMadness = () => {
   let monsterList = [
      {
         name: "Rat",
-        hp: 15,
+        hp: 50,
         dmg: 5,
         exp: 5,
         Abillity1: "Bite",
@@ -322,7 +373,7 @@ let monsterMakerMadness = () => {
     },
     {
       Image: "url('picture/Bash_bransh_monster.gif')",
-       name: "Rotten rot",
+       name: "Rotten root",
        hp: 15,
        dmg: 10,
        exp: 50,
@@ -333,7 +384,7 @@ let monsterMakerMadness = () => {
    },
    {
       name: "Bear",
-      hp: 15,
+      hp: 50,
       dmg: 10,
       exp: 75,
       Abillity1: "Bite",

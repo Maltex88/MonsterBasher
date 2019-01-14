@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TheGame Page</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-auth.js"></script>
+
+    <script src=" https://code.jquery.com/jquery-3.3.1.js"> </script>
+    <script src="fight.js"> </script>
+    <link rel="stylesheet" href="playBord.css">
+</head>
+<body>
+<div id="test"></div>
+<div id="note"></div>
+
+<!-- This section is for character name -->
+    <div id="charCreateAndBattle">
+
+
+
+        <div id="charactersNameMeny">
+            <input type="text" placeholder="Select your character name" id="inputName"></input>
+            <button id="createCharacter">Create Character</button>
+            <button  onclick="mainApp.logout();">logout</button>
+            <button id="btn-saved-char">Play as saved character</button>
+        </div>
+        <!-- This section is for character name -->
+
+        <!-- This part is diplay during the picking face --------------->
+        <div id="charactersclassMeny" hidden="true">
+            <h2 id="selectedName"></h2>
+
+            <div class="showTheClasses">
+                <div class="knightDivShow"> <img src="picture/knight_idle.gif"> </div>
+                <div class="ozzDivShow"><img src="picture/ozz.gif" class="ozzImgShow"> </div>
+                <div class="hunterDivShow"><img src="picture/Hunter.gif" class="hunterImgShow"></div>
+            </div>
+            <!-- And here are the button that are use for pick a hero ----------->
+            <button id="selectCharacterClassWarrior">Warrior</button>
+            <button id="selectCharacterClassMage">Mage</button>
+            <button id="selectCharacterClassArcher">Archer</button>
+            <div id="selectedClass"></div>
+            <!-- This section is for The battle -->
+            <button id="startFight" hidden="true" ></button>
+            <button id="goToTown" hidden="true" >Go to town</button>
+        </div>
+
+
+        <!-- Kamphols kod, kaos! -->
+
+
+        <div id="contanierHidden" hidden="true">
+
+            <div class="faceOff">
+                <button  id="log-out-btn">Log Out</button>
+                <button  id="save-game-btn">Save Game</button>
+                <button  id="load-game-btn">View Last Player</button>
+                <div id="player">
+                    <img src="picture/Hunter.gif" id="playerImg">
+                </div>
+                <div id="enermy">
+                    <div class="enemyHPBar">  <span id="enemy-hp"></span> </div>
+                </div>
+            </div>
+            <div class="playerHub">
+                <div class="spellTap">  <button id="attack1"></button>
+                    <button id="attack2"></button>
+                    <button id="attack3"></button>
+                    <button id="attack4"></button>
+
+
+                </div>
+                <div id="playerName">
+                    <span id="player-hp"></span>
+                    <div>
+                        <div id="msgToPlayerAttack"></div>
+                        <div id="msgToPlayerAttacked"></div>
+                        <h2 id="msgToPlayeradvancing"></h2>
+                    </div>
+                    <button id="newFight" hidden="true">Fight more monsters!</button>
+                </div>
+            </div>
+        </div>
+        <!-- Här slutar kamphols kod-->
+    </div> <!-- Denna div gör att man kan display hidden på hela den första koden och ta display hidden false på koden nedan för att få fram
+            playerhubben-->
+
+    <!-- Go to town -->
+
+
+
+    <div id="playerNav" hidden="true">
+        <div id="playerHubNav">
+            <button id="exitButton">Game Meny</button>
+            <div id="playerHubNavBox1">
+                <button>Battle</button>
+                <button>Shop</button>
+            </div>
+            <div id="playerHubNavBox2">
+                <button>Highscores</button>
+                <button>Help</button>
+                <button>Contact</button>
+                <button>Exit</button>
+                <p> © Henrik, Kamphol, Ibra</p>
+            </div>
+        </div>
+
+        <div id="playerHubMain">
+            <h2 class="characterBioName">Maltex</h2>
+            <div id="playerHubMainBox1">
+                <div id="characterPortrait"></div>
+                <div>
+                    <h3>Name:</h3>
+                    <h3>Class:</h3>
+                    <h3>Lvl:</h3>
+                    <h3>More:</h3>
+                    <h3>Content:</h3>
+                    <h3>Needed:</h3>
+                </div>
+            </div>
+            <div id="playerHubMainBox2">
+            </div>
+        </div>
+        <div id="playerHubInventoryBox">
+            <h2>Character Equipment</h2>
+            <div id="playerHubInventoryBox1">
+                <p>paragraf</p>
+                <p>paragraf</p>
+                <p>paragraf</p>
+            </div>
+            <div id="playerHubInventoryBox2">
+                <p>playerHubInventoryBox1</p>
+            </div>
+            <div id="playerHubInventoryBox3">
+                <p>playerHubInventoryBox2</p>
+            </div>
+        </div>
+    </div>
+<script src="fireBase.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
