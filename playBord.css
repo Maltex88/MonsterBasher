@@ -1,0 +1,342 @@
+body{
+  /*background-image: url("picture/background_img .png"); visar du background i body blir det svårare med att få till playerhub */
+  /* transition: .6s sease;
+  animation: change 10s infinite; */
+ font-family: cursive;
+ }
+#charCreateAndBattle {
+  background-image: url("picture/background_img .png");
+  min-height: 100%;
+  min-width: 1500px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+ }
+
+
+/* button{
+   font-family: cursive;
+ }*/
+
+ /*@keyframes change{
+ 0%  { background-color:#1a1919}
+ 25% { background-color:#be000e}
+ 50% { background-color:#f6f4f2}
+ 75% { background-color:#002b6c}
+ 100%{ background-color:#011e2e}
+} */
+/* The in log scren  --------------*/
+
+
+#charactersNameMeny{
+font-size: 50px;
+background-color: #4e504b;
+margin-bottom: 40;
+height:500px;
+width: 400px;
+margin-left: 530px;
+margin-top: 100px;
+border-radius: 15px 15px;
+border: solid ;
+opacity: .9;
+/* display: none; */
+}
+
+#inputName{
+border-radius: 15px 15px;
+width: 200px;
+height: 30px;
+text-align: center;
+font-size: 20px;
+border: solid;
+margin-top: 200px;
+margin-left: 100px;
+}
+
+
+#createCharacter{
+margin-left: 130px;
+border-radius: 15px 15px;
+width: 150px;
+height: 20px;
+font-size: 15px;
+
+}
+
+
+
+/* Select you hero -------*/
+.showTheClasses{
+  margin-top: 100px;
+  display: flex;
+}
+
+#selectedName{
+font-size: 30px;
+letter-spacing: 5px;
+margin-left: 47px;
+color: snow;
+}
+.startOrTown{
+  margin-left: 100px;
+}
+#selectedClass{
+  text-align: center;
+  font-size: 20px;
+}
+
+
+.showTheClasses > div{
+  display:inline-flex;
+  margin-left: 120px;
+}
+
+
+.ozzImgShow{
+  margin-left: 15px;
+}
+.hunterImgShow{
+margin-left: 35px;
+}
+#charactersclassMeny{
+width: 70%;
+height: 700px;
+background-color: #7f7e7d;
+margin-left: 200px;
+border: solid 5px;
+position: relative;
+ /* display: none; */
+}
+
+#charactersclassMeny > button:hover {
+  background-color: #cdb39a;
+
+}
+
+
+
+#log-out-btn, #save-game-btn, #load-game-btn, #btn-saved-char{
+  background-color: #924702;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  /* border-radius: 15px 15px; */
+  border: 0.4px solid;
+  margin: 20px;
+}
+/**    <button  id="log-out-btn">logout</button>
+                <button  id="save-game-btn">Save</button>**/
+
+
+#charactersclassMeny > button{
+  background-color: #924702;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  /* border-radius: 15px 15px; */
+  border: 0.4px solid;
+  margin: 20px;
+  margin-left: 90px;
+  margin-top: 50px;
+
+}
+/* the playing background */
+#contanierHidden{
+
+height: 700px;
+background-image: url("picture/CombadFace.png");
+border: solid 5px;
+
+
+}
+
+/* The place were all the spells are -----------*/
+.playerHub{
+position: absolute;
+height: 150px;
+width: 100%;
+background:linear-gradient(to bottom left, #669999 19%, #999966 86%);
+bottom: 0;
+border-top: 3px solid;
+display: flex;
+}
+
+.spellTap{
+  height: 100%;
+  width: 50%;
+
+}
+
+.playerHub .spellTap  button{
+width: 50%;
+height: 50%;
+float: right;
+background-color:tan;
+border: solid 2px;
+font-size: 20px;
+}
+
+.playerHub .spellTap button:hover{
+background-color: snow;
+
+}
+
+/* The area there are standing face to face */
+.faceOff {
+display: flex;
+margin-top: 120px;
+position: relative;
+}
+
+
+/* everthing that have to do with the enemy */
+#msgToPlayerAttacked{
+  background-color: brown;
+  width: 500px;
+  font-size: 20px;
+}
+
+#enemy-hp{
+
+  font-size: 20px;
+}
+.enemyHPBar{
+margin-left: 100px;
+font-size: 20px;
+height: 50px;
+position: absolute;
+bottom: 0;
+width: 150px;
+
+}
+#enermy{
+background-repeat: no-repeat;
+display: inline-flex;
+height: 350px;
+width: 280px;
+background-image: url('picture/Bash_bransh_monster.gif');
+margin-left: 220px;
+}
+
+
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+}
+
+/* players css ---------------------*/
+#msgToPlayerAttack{
+background-color: saddlebrown;
+width: 800px
+font-size: 20px;
+
+}
+#playerImg{
+float: right;
+margin-top: 150px;
+}
+#player-hp{
+font-size: 20px;
+margin-top: 50px;
+margin-left: 30px;
+}
+.player_HP_bar{
+background-image: url("picture/heart.png");
+margin-bottom: 30px;
+display: inline-flex;
+height: 140px;
+width: 160px;
+text-align: center;
+float: right;
+background-repeat: no-repeat;
+}
+#player{
+height: 280px;
+width: 280px;
+
+margin-left: 120px;
+}
+
+/*Här börjar Henrik css*/
+button {
+  background-color: lightgrey; /* Green */
+  border: 1px solid black;
+  color: black;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+#characterPortrait {
+  background-image: url("picture/minsc.jpg");
+  background-repeat: no-repeat, repeat;
+  border: 1px solid black;
+  height: 16em;
+  width: 12.5em;
+  display: inline-block
+
+}
+#exitButton {
+  font-size: 2em;
+}
+
+#playerNav {
+  background: lightgrey;
+  display: grid;
+  grid-template-columns: 15em auto 30em;
+  grid-template-rows: auto;
+  height: 100%;
+  grid-template-areas:
+  "left center right"
+  "left center right"
+  "left center right"
+
+}
+
+#playerHubNav {
+
+  grid-area: left;
+  border: 1px solid black;
+}
+#playerHubMain {
+
+
+  grid-area: center;
+  border: 1px solid black;
+}
+
+#playerHubMainBox1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-area: middle;
+  display: block;
+
+}
+#playerHubMainBox2 {
+  grid-area: footer;
+  text-align: center;
+  border: 1px solid gray;
+}
+
+#playerHubInventoryBox {
+  grid-area: right;
+}
+#playerHubInventoryBox *  {
+  text-align: center;
+}
+#playerHubMain * {
+  text-align: center;
+}
+#playerHubNav * {
+  text-align: center;
+}
+#playerHubMainBox1 {
+  text-align: center;
+
+}
