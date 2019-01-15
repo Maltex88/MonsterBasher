@@ -192,19 +192,19 @@ $(document).ready(() => {
     }
   }
   function enemyMoves(){
-    document.getElementById("enermy").style.backgroundImage = "url('picture/SpoooderAttack.gif')";
-    document.getElementById('enermy').id = 'enemyAttack';
+    document.getElementById("enermy").src = "picture/SpoooderAttack.gif";
+    document.getElementById('enermy').id = 'enermyMove';
     setTimeout(() => {
-      document.getElementById("enermyAttack").style.backgroundImage = "url('picture/Spoooder.gif')";
-      document.getElementById('enermyAttack').id = 'enermy';
+      document.getElementById("enermyMove").src = "picture/Spoooder.gif";
+      document.getElementById('enermyMove').id = 'enermy';
     }, 1000)
   }
 
-  // function spiderMoves() {
-  //   if(enemy.class === 'Spider'){
-  //     return enemyMoves;
-  //   }
-
+   function enermyAttackAnimation() {
+     if (enemy.class === 'Spider') {
+       return enemyMoves();
+     }
+   }
 function warriorMoves(){
   document.getElementById("playerImg").src = "picture/knight_attack.gif";
   document.getElementById('player').id = 'playerMove';
@@ -216,25 +216,25 @@ function warriorMoves(){
 
 
   $('#attack1').click(function(){
-
+    console.log('vad är enemy när man klickar fight ' + enemy.name);
    // msgToPlayer();
     isThisAWarrior();
     enemyAttacked1();
-    //enemyMoves();
+
 
 
       if (isGameOver(enemy.hp)){
         enemyKilled();
         playerLvlUp();
         whenGameIsOver();
-        fightMoreEnemys();
+       //fightMoreEnemys();
         return;
       }
 
 
     attackDisable();
     setTimeout(() => {
-
+      enemyMoves();
       enemyAttack();
       // enemyMoves();
         if (isGameOver(player.hp)){
@@ -254,12 +254,13 @@ function warriorMoves(){
         enemyKilled();
         playerLvlUp();
         whenGameIsOver();
-        fightMoreEnemys();
+       //ightMoreEnemys();
         items.hidden = true;
         return;
       }
     attackDisable();
     setTimeout(() => {
+      enermyAttackAnimation();
       enemyAttack();
         if (isGameOver(player.hp)){
           thePlayerHaveDied();
@@ -277,12 +278,13 @@ function warriorMoves(){
         enemyKilled();
         playerLvlUp();
         whenGameIsOver();
-        fightMoreEnemys();
+       //ightMoreEnemys();
         items.hidden = true;
         return;
       }
     attackDisable();
     setTimeout(() => {
+      enermyAttackAnimation();
       enemyAttack();
         if (isGameOver(player.hp)){
           thePlayerHaveDied();
@@ -303,18 +305,19 @@ function warriorMoves(){
 
   });
   $('#startFight, #newFight, #fromTownToBattle, #btn-saved-char').click(function(){
-
+    console.log('vad är enemy när man klickar fight ' + enemy.name);
     spellsShow();
     itemsHide();
     battleChanges();
     attackEnable();
+
+
     monsterMakerMadness();
     printToScreen();
-
 });
 
   printToScreen();
-})
+});
 /*click functions to load at start*/
 
 /*functions*/
@@ -322,7 +325,7 @@ function warriorMoves(){
 let battleChanges = () => {
   $('#verticalMenu').empty();
   charCreateAndBattle.hidden = false;
-  msgToPlayeradvancing.innerText = "";
+  //msgToPlayeradvancing.innerText = "";
   //$('#msgToPlayerAttack').empty();
   // msgToPlayerAttacked.innerText = "";
   // msgToPlayerAttack.innerText = "";
@@ -405,7 +408,7 @@ let playerLvlUp = () => {
 };  //calculates player lvlup and type it in msgToPlayeradvancing
 let monsterMakerMadness = () => {
   let monsterList = [
-     {
+     {  Image: "url('picture/Rat_Idle.gif')" ,
         name: "Rat",
         hp: 50,
         dmg: 5,
@@ -416,7 +419,7 @@ let monsterMakerMadness = () => {
         Abillity4: "Flee"
     },
     {
-      Image: "url('picture/Bash_bransh_monster.gif')",
+        Image: "url('picture/Bash_bransh_monster.gif')",
        name: "Rotten root",
        hp: 15,
        dmg: 10,
@@ -427,6 +430,7 @@ let monsterMakerMadness = () => {
        Abillity4: "Flee"
    },
    {
+      Image: "",
       name: "Bear",
       hp: 50,
       dmg: 10,
@@ -438,7 +442,7 @@ let monsterMakerMadness = () => {
   },
   {
      name: "Crow",
-     Image: "url('picture/Bierdee.png')",
+     Image: "url('picture/Bierdee_idel.gif')",
      hp: 15,
      dmg: 20,
      exp: 30,
@@ -462,9 +466,9 @@ let monsterMakerMadness = () => {
   ];
   let rand = monsterList[Math.floor(Math.random() * monsterList.length)];
 
-  //for(i = 0; i < monsterList.length; i++)
+  for(i = 0; i < monsterList.length; i++)
 
-   document.getElementById("enermy").style.backgroundImage = rand.Image;
+    document.getElementById("enermy").style.backgroundImage = rand.Image;
     enemy.name = rand.name;
     enemy.hp = rand.hp;
     enemy.dmg = rand.dmg;
@@ -508,6 +512,7 @@ let enemyKilled = () => {
   player.exp += enemy.exp;
   player.enemysKilled += 1;
   document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
+  printToScreen();
   $('#verticalMenu').append(`<li>You have slain the ${enemy.name}, the ${enemy.name } was worth ${enemy.exp} experience!</li>`)
   // messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
   enemysHp = 0;
@@ -535,7 +540,7 @@ let attackEnable = () => {
 };
 let thePlayerHaveDied = () => {
   document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
-  messageToPlayerAttacked.innerText = "You have died in battle!";
+  $('#verticalMenu').append(`<li>You are dead! GAME OVER! </li>`)
 } //enables attack buttons
 let isGameOver = (hp) => {
   return hp <= 0;

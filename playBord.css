@@ -220,6 +220,7 @@ width: 150px;
 
 }
 #enermy{
+  float: left;
 background-repeat: no-repeat;
 display: inline-flex;
 height: 350px;
@@ -227,30 +228,12 @@ width: 280px;
 background-image: none;
 margin-left: 470px;
 margin-top: 30px;
-animation-name: blink;
-animation-duration: infinity;
 }
 
-#enermyAttack{
-background-repeat: no-repeat;
-display: inline-flex;
-height: 350px;
-width: 280px;
-/* background-image: url("picture/spoooder.gif");  */
-margin-left: 470px;
-margin-top: 30px;
-animation-name: blink;
-animation-duration: infinity;
-}
 
-@keyframes enermyAttack {
-  0%   { left:0px; top:0px;}
-  /* 25%  {background-color:yellow; left:250px; } */
-  50%  {right: :370px; }
-  75%  { right:0px;}
-  100% {}
-}
-#enermyAttack{
+#enermyMove{
+  float: left;
+  position: relative;
   background-repeat: no-repeat;
   display: inline-flex;
   height: 350px;
@@ -262,12 +245,13 @@ animation-duration: infinity;
   animation-duration: 2s;
 }
 
+
 @keyframes enemyAttack{
-  0%   { left:0px; top:0px;}
+  0%   { right:0px; top:0px;}
   /* 25%  {background-color:yellow; left:250px; } */
-  50%  {right: :370px; }
+  50%  {right:600px; }
   75%  { right:0px;}
-  100% {}
+  100% {right: 0;}
 }
 @keyframes blink{
 0%{opacity: 0;}
