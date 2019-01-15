@@ -1,5 +1,6 @@
 body{
- font-family: cursive;
+ font-family:MedievalSharp;
+
  }
 
 
@@ -20,42 +21,67 @@ body{
   left: 0;
  }
 
-
-
-
+button{
+  font-family:MedievalSharp;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
 
 #charactersNameMeny{
-font-size: 50px;
-background-color: #4e504b;
+background-color:#f7efd3;
 margin-bottom: 40;
 height:500px;
 width: 400px;
-margin-left: 530px;
+margin-left: 40%;
 margin-top: 100px;
 border-radius: 15px 15px;
-border: solid ;
+border: inset 10px #475c6c;
 opacity: .9;
 }
-
+.logo{
+font-family:MedievalSharp;
+font-size: 50px;
+font-weight:bolder;
+margin-left: 26px;
+margin-top: 80px;
+color: #475c6c;
+}
 #inputName{
-font-family: cursive;
+font-family: MedievalSharp;
+font-weight:bold;
 border-radius: 15px 15px;
-width: 200px;
+width: 250px;
 height: 30px;
 text-align: center;
 font-size: 18px;
-border: solid;
-margin-top: 200px;
-margin-left: 100px;
-
+border: inset #475c6c;
+margin-top: 40px;
+margin-left: 67px;
 }
 
-#charactersNameMeny > button{
+#createCharacter{
+  height: 35px;
+  width: auto;
+  font-size: 15px;
+  margin-left: 124px;
+  margin-top: 30px;
+  border: inset #475c6c;
+}
 
-/* margin-left: 23px; */
-border: solid;
+/* The css make the button for loggout or play on and lodade save file */
+.menyButtonHolder{
 
+  display: flex;
+  margin-top: 50px;
+}
+
+#charactersNameMeny .menyButtonHolder > button{
+border: outset #475c6c;
+display: inline-table;
 font-size: 15px;
+height: 40px;
+margin-left: 20px;
+margin-right: 20px;
 }
 
 

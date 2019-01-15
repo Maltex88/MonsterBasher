@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
     <title>TheGame Page</title>
 
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
@@ -14,19 +15,23 @@
     <link rel="stylesheet" href="playBord.css">
 </head>
 <body>
-<audio autoplay>
+<!-- {<audio autoplay>
 <source src="sound/Medieval Music - Black Wolfs Inn.mp3">
-</audio>
+</audio>} -->
 
 <!-- This section is for character name -->
     <div id="charCreateAndBattle">
 
         <div id="charactersNameMeny">
+          <div class="logo">Monster Bacher</Div>
             <input type="text" placeholder="Select your character name" id="inputName"/>
             <button id="createCharacter">Create Character</button>
-            <button id="btn-saved-char">Play as saved character</button>
-            <button  onclick="mainApp.logout();">logout</button>
-        </div>
+
+              <div class="menyButtonHolder">
+                  <button id="btn-saved-char">Play as saved character</button>
+                  <button  onclick="mainApp.logout();">logout</button>
+                  </div>
+              </div>
         <!-- This section is for character name -->
 
         <!-- This part is diplay during the picking face --------------->
