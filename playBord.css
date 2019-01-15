@@ -158,17 +158,21 @@ display: flex;
 }
 
 .spellTap{
+
   height: 100%;
   width: 50%;
 
 }
 
 .playerHub .spellTap   button{
+
 width: 50%;
 height: 50%;
 float: right;
 background-color:tan;
-border: solid 2px;
+border-left: solid 2px;
+border-right: solid 2px;
+border-bottom: solid 2px;
 font-size: 20px;
 }
 
@@ -273,9 +277,12 @@ animation-duration: infinity;
 
 
 #verticalMenu{
-  margin-bottom: 20px;
-  height: 120px;
-  border: solid black;
+  /*display: block;*/
+  margin-bottom: 0px;
+  padding: 0px;
+  width: 500px;
+  height: 100%;
+  border-left: solid black;
   background-color: #413126;
   overflow-y:scroll;
   color: snow;

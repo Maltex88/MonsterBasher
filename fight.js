@@ -219,8 +219,10 @@ function warriorMoves(){
 
 
   $('#attack1').click(function(){
-    msgToPlayer();  enemyAttacked1();isThisAWarrior();
 
+   // msgToPlayer();
+    isThisAWarrior();
+    enemyAttacked1();
     //enemyMoves();
 
 
@@ -248,7 +250,7 @@ function warriorMoves(){
       }, 1500);
   });
   $('#attack2').click(function(){
-    msgToPlayer();
+  //  msgToPlayer();
     enemyAttacked2();
     isThisAWarrior();
       if (isGameOver(enemy.hp)){
@@ -271,7 +273,7 @@ function warriorMoves(){
       }, 1500);
   });
   $('#attack3').click(function(){
-    msgToPlayer();
+  //  msgToPlayer();
     enemyAttacked3();
     isThisAWarrior();
       if (isGameOver(enemy.hp)){
@@ -304,12 +306,14 @@ function warriorMoves(){
 
   });
   $('#startFight, #newFight, #fromTownToBattle, #btn-saved-char').click(function(){
+
     spellsShow();
     itemsHide();
     battleChanges();
     attackEnable();
     monsterMakerMadness();
     printToScreen();
+
 });
 
   printToScreen();
@@ -319,10 +323,12 @@ function warriorMoves(){
 /*functions*/
 /*display element functions*/
 let battleChanges = () => {
+  $('#verticalMenu').empty();
   charCreateAndBattle.hidden = false;
   msgToPlayeradvancing.innerText = "";
-  msgToPlayerAttacked.innerText = "";
-  msgToPlayerAttack.innerText = "";
+  //$('#msgToPlayerAttack').empty();
+  // msgToPlayerAttacked.innerText = "";
+  // msgToPlayerAttack.innerText = "";
   selectedClass.innerText = "";
   newFight.hidden = true;
   goToTown.hidden = true;
@@ -357,6 +363,7 @@ let spellsShow = () => {
   logout.hidden = true;
 }
 let itemsHide = () => {
+  //document.getElementById('verticalMenu').empty();
   manaPot.hidden = true;
   hpPot.hidden = true;
   useItem.hidden = true;
@@ -384,7 +391,8 @@ let combatDone = () => {
 let enemyAttack = () => {
   let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
   player.hp -= enemyAttack;
-  msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
+  $('#verticalMenu').append(`<li>The ${enemy.name} strikes you for ${enemyAttack} damage!</li>`)
+ // msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
   printToScreen();
 
   /*display element functions*/
@@ -502,7 +510,7 @@ let enemyKilled = () => {
   player.exp += enemy.exp;
   player.enemysKilled += 1;
   document.getElementById('enemy-hp').innerText = enemy.name +" "+ "0" +" Hp";
-  $('#verticalMenu').append(`<li>You have slain the ${enemy.name}, the ${enemy.name } was worth ${enemy.exp} damage!</li>`)
+  $('#verticalMenu').append(`<li>You have slain the ${enemy.name}, the ${enemy.name } was worth ${enemy.exp} experience!</li>`)
   // messageToPlayerAttacked.innerText = "You have slain the "+ enemy.name +", the "+ enemy.name +" was worth " + enemy.exp +" experience points";
   enemysHp = 0;
   /*kod här */
@@ -511,10 +519,10 @@ let enemyKilled = () => {
   newFight.hidden = false;
   toTownFromBattle.hidden = false;
 }; //when enemy dies , give player exp and display msg
-let msgToPlayer = () => {
-  messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
-  messageToPlayerAttacked = document.getElementById('msgToPlayerAttacked');
-} //information to the player thru combatlog
+// let msgToPlayer = () => {
+//  // messageToPlayerAttack = document.getElementById('msgToPlayerAttack');
+// //  messageToPlayerAttacked = document.getElementById('msgToPlayerAttacked');
+// } //information to the player thru combatlog
 let attackDisable = () => {
   var disableAllButtons = document.querySelectorAll('[id^="attack"]');
   for (var i = 0; i < disableAllButtons.length; i++) {
