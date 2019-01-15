@@ -7,6 +7,7 @@ body{
    font-family:MedievalSharp;
    font-weight: bolder;
    letter-spacing: 2px;
+   background-color: lightgrey;
  }
 
  /* Character creation stats here--------------- */
@@ -81,6 +82,7 @@ margin-left: 67px;
 }
 
 #charactersNameMeny .menyButtonHolder > button{
+width: 100%;
 border: outset #475c6c;
 display: inline-table;
 font-size: 15px;
@@ -92,63 +94,57 @@ margin-right: 20px;
 
 
 /* Select you hero -------*/
-.showTheClasses{
-  margin-top: 100px;
-  display: flex;
+#charactersclassMeny{
+width: 80%;
+height: 700px;
+background-color:#475c6c;
+margin-left: 200px;
+border: inset 8px;
+ /* display: none; */
+}
+#selectedClass{
+  margin-top: 30px;
+  margin-left: 23%;
+  font-weight: bolder;
+  font-size: 30px;
+  color: #f7efd3;
 }
 
 #selectedName{
 font-size: 30px;
 letter-spacing: 5px;
 margin-left: 10%;
-color: snow;
+color: #f7efd3;
+}
+
+.showTheClasses{
+  margin-top: 100px;
+  display: flex;
+}
+
+.showTheClasses > div{
+display:inline-flex;
+margin-left: 14.6%;
+border-bottom: inset 1px;;
+}
+.selectClassButtonRaper{
+margin-top: 20px;
+display: flex;
+}
+
+ .selectClassButtonRaper > button{
+  display: inline-flex;
+  width: 150px;
+  letter-spacing: 10px;
+  margin-left: 15.5%;
+  font-size: 20px;
+  border: inset 3px #f7efd3;
+}
+.selectClassButtonRaper > button:hover {
+  background-color:	#cdb39a;
 }
 .startOrTown{
   margin-left: 100px;
-}
-#selectedClass{
-  text-align: center;
-  font-size: 30px;
-}
-
-
-.showTheClasses > div{
-  display:inline-flex;
-  margin-left: 14%;
-}
-
-
-.ozzImgShow{
-  margin-left: 15px;
-}
-.hunterImgShow{
-margin-left: 35px;
-}
-#charactersclassMeny{
-width: 80%;
-height: 700px;
-background-color: #465368;
-margin-left: 200px;
-border: solid 5px;
-position: relative;
- /* display: none; */
-}
-#charactersclassMeny  button{
-  font-family: cursive;
-}
-.classButton > button:hover {
-  background-color: #cdb39a;
-}
-.classButton > button{
-  background-color: #924702;
-  font-size: 20px;
-  width: 200px;
-  height: 50px;
-  /* border-radius: 15px 15px; */
-  border: 0.4px solid;
-  margin: 20px;
-  margin-left: 90px;
-  margin-top: 50px;
 }
 
 #TownOrFight> button:hover {
@@ -156,14 +152,12 @@ position: relative;
 }
 
 #TownOrFight > button{
-  background-color: #924702;
   font-size: 20px;
   width: 200px;
   height: 50px;
-  /* border-radius: 15px 15px; */
-  border: 0.4px solid;
+  border: inset 3px #f7efd3;
   margin: 20px;
-  margin-left: 200px;
+  margin-left: 23%;
   margin-top: 50px;
 }
 
@@ -384,14 +378,6 @@ background-repeat: no-repeat;
 }
 
 
-
-button {
-  background-color: lightgrey;
-  border: 1px solid black;
-  color: black;
-  width: 100%;
-  font-size: 1.5em;
-}
 
 #characterPortrait {
   background-image: url("picture/minsc.jpg");
