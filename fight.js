@@ -18,7 +18,9 @@ let player = {
   lvl: 1, //fixa ett lvlup system..
   exp: 0,
   enemysKilled: 0,
+  img: ''
 }
+
 let enemy = {
   name: "",
   hp: 0,
@@ -40,12 +42,7 @@ let enemy_obj_state;
 
 
 
-//  <button id="btn-saved-char">Play as <span id="saved-char-name"></span></button>
-
-
-
-
-
+//  <button id="btn-saved-char">Play as <span id="saved-char-name"></span></button
 
 
 
@@ -87,13 +84,12 @@ $(document).ready(() => {
     player.Abillity1 = player_obj_state.Abillity1;
     player.Abillity2 = player_obj_state.Abillity2;
     player.Abillity3 = player_obj_state.Abillity3;
-    player.Abillity4 = player_obj_state.Abillity4;
+    player.items = player_obj_state.items;
     player.lvl = player_obj_state.lvl;
     player.exp = player_obj_state.exp;
     player.img = player_obj_state.img;
-     console.log(player);
+    player.img = document.getElementById("playerImg").src = ""+ player.img +"";
   }
-
 
 
   save_btn.addEventListener('click', saveData);
@@ -131,7 +127,8 @@ $(document).ready(() => {
   });
   $('#selectCharacterClassWarrior').click(function(){
     selectedClass.innerText = "You have selected the way of the Warrior, " + player.name + ""
-    document.getElementById("playerImg").src = "picture/knight_idle.gif";
+    player.img = document.getElementById("playerImg").src = 'picture/knight_idle.gif';
+
     player.class = "Warrior";
     player.Abillity1 = "Hack";
     player.Abillity2 = "Slash";
@@ -143,7 +140,7 @@ $(document).ready(() => {
   });
   $('#selectCharacterClassMage').click(function(){
     selectedClass.innerText = "You have selected the wise Mage"
-    document.getElementById("playerImg").src = "picture/ozz.gif";
+    player.img = document.getElementById("playerImg").src = 'picture/knight_idle.gif';
     player.class = "Mage";
     player.Abillity1 = "Fire boll";
     player.Abillity2 = "Ice Blast";
@@ -155,7 +152,7 @@ $(document).ready(() => {
   });
   $('#selectCharacterClassArcher').click(function(){
     selectedClass.innerText = "You have selected the agile Archer"
-    document.getElementById("playerImg").src = "picture/Hunter.gif";
+    player.img = document.getElementById("playerImg").src = 'picture/knight_idle.gif';
     player.class = "Archer";
     player.Abillity1 = "Flame Arrow";
     player.Abillity2 = "Stun Arrow";
@@ -391,7 +388,7 @@ let combatDone = () => {
 let enemyAttack = () => {
   let enemyAttack = Math.floor(Math.random()  * enemy.dmg + 5);
   player.hp -= enemyAttack;
-  $('#verticalMenu').append(`<li>The ${enemy.name} strikes you for ${enemyAttack} damage!</li>`)
+  $('#verticalMenu').append(`<li class="enemyCombatText">The ${enemy.name} strikes you for ${enemyAttack} damage!</li>`)
  // msgToPlayerAttacked.innerText = "The "+ enemy.name +" strikes you for "+ enemyAttack +" damage!";
   printToScreen();
 
@@ -402,7 +399,8 @@ let playerLvlUp = () => {
     player.lvl+=Math.floor(player.exp/nextlvl);// if xp is 1000, two levels up
     player.exp=player.exp%100
     nextlvl += 100;
-    msgToPlayeradvancing.innerText = "You have reached lvl: "+ player.lvl +"";
+    $('#verticalMenu').append(`<li class="playerLvlUpCobatText"> You have reached lvl: ${player.lvl}</li>`)
+
   }
 };  //calculates player lvlup and type it in msgToPlayeradvancing
 let monsterMakerMadness = () => {
