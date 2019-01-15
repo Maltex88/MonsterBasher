@@ -50,11 +50,11 @@ margin-left: 100px;
 
 }
 
-#createCharacter{
-margin-left: 130px;
-border-radius: 15px 15px;
-width: 150px;
-height: 20px;
+#charactersNameMeny > button{
+
+/* margin-left: 23px; */
+border: solid;
+
 font-size: 15px;
 }
 
@@ -223,6 +223,28 @@ width: 280px;
 /* background-image: url("picture/spoooder.gif");  */
 margin-left: 470px;
 margin-top: 30px;
+animation-name: blink;
+animation-duration: infinity;
+}
+
+#enermyAttack{
+background-repeat: no-repeat;
+display: inline-flex;
+height: 350px;
+width: 280px;
+/* background-image: url("picture/spoooder.gif");  */
+margin-left: 470px;
+margin-top: 30px;
+animation-name: blink;
+animation-duration: infinity;
+}
+
+@keyframes enermyAttack {
+  0%   { left:0px; top:0px;}
+  /* 25%  {background-color:yellow; left:250px; } */
+  50%  {right: :370px; }
+  75%  { right:0px;}
+  100% {}
 }
 
 @keyframes blink{
@@ -281,17 +303,18 @@ height: 280px;
 width: 280px;
 margin-left: 120px;
 position: relative;
-animation-name: example;
+animation-name: Attack;
 animation-duration:1.5s;
 }
 
-@keyframes example {
+@keyframes Attack {
   0%   { left:0px; top:0px;}
   /* 25%  {background-color:yellow; left:250px; } */
   50%  {left:370px; }
   75%  { left:0px;}
   100% {}
 }
+
 #playerImg{
 float: right;
 margin-top: 150px;
