@@ -194,18 +194,6 @@ $(document).ready(() => {
       return warriorMoves();
     }
   }
-<<<<<<< HEAD
-
-  function warriorMoves(){
-      document.getElementById("playerImg").src = "picture/knight_attack.gif";
-      document.getElementById('player').id = 'playerMove';
-          setTimeout(() => {
-              document.getElementById("playerImg").src = "picture/knight_idle.gif";
-              document.getElementById('playerMove').id = 'player';
-          }, 1000)
-  }
-
-=======
   function enemyMoves(){
     document.getElementById("enermy").style.backgroundImage = "url('picture/SpoooderAttack.gif')";
     document.getElementById('enermy').id = 'enemyAttack';
@@ -230,16 +218,11 @@ function warriorMoves(){
 }
 
 
->>>>>>> 39f04ccf941b21ee90bd5c1a5a696417275f2d71
   $('#attack1').click(function(){
     msgToPlayer();
    enemyMoves();
     enemyAttacked1();
-<<<<<<< HEAD
     isThisAWarrior();
-=======
-
->>>>>>> 39f04ccf941b21ee90bd5c1a5a696417275f2d71
 
       if (isGameOver(enemy.hp)){
         enemyKilled();
