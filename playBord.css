@@ -328,7 +328,7 @@ animation-duration:1.5s;
 @keyframes Attack {
   0%   { left:0px; top:0px;}
   /* 25%  {background-color:yellow; left:250px; } */
-  50%  {left:370px; }
+  50%  {left:600px; }
   75%  { left:0px;}
   100% {}
 }

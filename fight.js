@@ -219,10 +219,10 @@ function warriorMoves(){
 
 
   $('#attack1').click(function(){
-    msgToPlayer();
-   enemyMoves();
-    enemyAttacked1();
-    isThisAWarrior();
+    msgToPlayer();  enemyAttacked1();isThisAWarrior();
+
+    //enemyMoves();
+
 
       if (isGameOver(enemy.hp)){
         enemyKilled();
@@ -237,7 +237,7 @@ function warriorMoves(){
     setTimeout(() => {
 
       enemyAttack();
-       enemyMoves();
+      // enemyMoves();
         if (isGameOver(player.hp)){
           thePlayerHaveDied();
           whenGameIsOver();
