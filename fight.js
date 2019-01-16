@@ -50,12 +50,13 @@ let axeSound;
 let sword_attack_sound;
 let game_over_sound;
 let slash_attack_sound;
-
+let spider_attack_sound;
 //------------------------------------------------------------------------------------
 /*Player / enemy Object*/
 
 /*click functions to load at start*/
 $(document).ready(() => {
+  spider_attack_sound = document.getElementById('spider-attack-sound');
     game_over_sound = document.getElementById('game-over-sound');
     sword_attack_sound  = document.getElementById("sword-attack-sound");
     axeSound = document.getElementById("warriorSound");
@@ -241,6 +242,7 @@ function warriorMoves(){
     attackDisable();
     setTimeout(() => {
       enemyMoves();
+spider_attack_sound.play();
       enemyAttack();
       // enemyMoves();
         if (isGameOver(player.hp)){
