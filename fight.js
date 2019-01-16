@@ -46,6 +46,8 @@ let enemy_obj_state;
 
 
 
+let axeSound;
+
 
 
 //------------------------------------------------------------------------------------
@@ -53,6 +55,7 @@ let enemy_obj_state;
 
 /*click functions to load at start*/
 $(document).ready(() => {
+    axeSound = document.getElementById("warriorSound");
   /**
    *  playerName.innerText = ""+ player.name +"";
    playerLvl.innerText = "Lvl: "+ player.lvl +"";
@@ -128,7 +131,7 @@ $(document).ready(() => {
   $('#selectCharacterClassWarrior').click(function(){
     selectedClass.innerText = "You have selected the way of the Warrior, " + player.name + ""
     player.img = document.getElementById("playerImg").src = 'picture/knight_idle.gif';
-
+    axeSound.play();
     player.class = "Warrior";
     player.Abillity1 = "Hack";
     player.Abillity2 = "Slash";
@@ -140,7 +143,7 @@ $(document).ready(() => {
   });
   $('#selectCharacterClassMage').click(function(){
     selectedClass.innerText = "You have selected the wise Mage"
-    player.img = document.getElementById("playerImg").src = 'picture/knight_idle.gif';
+    player.img = document.getElementById("playerImg").src = 'picture/ozz.gif';
     player.class = "Mage";
     player.Abillity1 = "Fire boll";
     player.Abillity2 = "Ice Blast";
@@ -152,7 +155,7 @@ $(document).ready(() => {
   });
   $('#selectCharacterClassArcher').click(function(){
     selectedClass.innerText = "You have selected the agile Archer"
-    player.img = document.getElementById("playerImg").src = 'picture/knight_idle.gif';
+    player.img = document.getElementById("playerImg").src = 'picture/Hunter.gif';
     player.class = "Archer";
     player.Abillity1 = "Flame Arrow";
     player.Abillity2 = "Stun Arrow";
@@ -192,7 +195,6 @@ $(document).ready(() => {
     }
   }
   function enemyMoves(){
-    document.getElementById("enermy").src = "picture/SpoooderAttack.gif";
     document.getElementById('enermy').id = 'enermyMove';
     setTimeout(() => {
       document.getElementById("enermyMove").src = "picture/Spoooder.gif";
@@ -202,7 +204,7 @@ $(document).ready(() => {
 
    function enermyAttackAnimation() {
      if (enemy.class === 'Spider') {
-       return enemyMoves();
+       document.getElementById("enermy").src = "picture/SpoooderAttack.gif";
      }
    }
 function warriorMoves(){
@@ -260,7 +262,7 @@ function warriorMoves(){
       }
     attackDisable();
     setTimeout(() => {
-      enermyAttackAnimation();
+      enemyMoves();
       enemyAttack();
         if (isGameOver(player.hp)){
           thePlayerHaveDied();
@@ -284,7 +286,7 @@ function warriorMoves(){
       }
     attackDisable();
     setTimeout(() => {
-      enermyAttackAnimation();
+     enemyMoves();
       enemyAttack();
         if (isGameOver(player.hp)){
           thePlayerHaveDied();
