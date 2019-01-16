@@ -431,17 +431,6 @@ let monsterMakerMadness = () => {
        Abillity3: "Pounch",
        Abillity4: "Flee"
    },
-   {
-      Image: "",
-      name: "Bear",
-      hp: 50,
-      dmg: 10,
-      exp: 75,
-      Abillity1: "Bite",
-      Abillity2: "Claw",
-      Abillity3: "Bear Slap",
-      Abillity4: "Flee"
-  },
   {
      name: "Crow",
      Image: "url('picture/Bierdee_idel.gif')",
