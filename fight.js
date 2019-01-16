@@ -47,15 +47,19 @@ let enemy_obj_state;
 
 
 let axeSound;
-
-
+let sword_attack_sound;
+let game_over_sound;
+let slash_attack_sound;
 
 //------------------------------------------------------------------------------------
 /*Player / enemy Object*/
 
 /*click functions to load at start*/
 $(document).ready(() => {
+    game_over_sound = document.getElementById('game-over-sound');
+    sword_attack_sound  = document.getElementById("sword-attack-sound");
     axeSound = document.getElementById("warriorSound");
+    slash_attack_sound = document.getElementById('slash-attack-sound');
   /**
    *  playerName.innerText = ""+ player.name +"";
    playerLvl.innerText = "Lvl: "+ player.lvl +"";
@@ -222,7 +226,7 @@ function warriorMoves(){
    // msgToPlayer();
     isThisAWarrior();
     enemyAttacked1();
-
+    sword_attack_sound.play();
 
 
       if (isGameOver(enemy.hp)){
@@ -250,6 +254,7 @@ function warriorMoves(){
   });
   $('#attack2').click(function(){
   //  msgToPlayer();
+    slash_attack_sound.play();
     enemyAttacked2();
     isThisAWarrior();
       if (isGameOver(enemy.hp)){
@@ -457,17 +462,17 @@ let monsterMakerMadness = () => {
   ];
   let rand = monsterList[Math.floor(Math.random() * monsterList.length)];
 
-  for(i = 0; i < monsterList.length; i++)
+  for(let i = 0; i < monsterList.length; i++)
 
     document.getElementById("enermy").style.backgroundImage = rand.Image;
     enemy.name = rand.name;
     enemy.hp = rand.hp;
     enemy.dmg = rand.dmg;
-    enemy.exp = rand.exp
-    enemy.enemyAbillity1 = rand.enemyAbillity1
-    enemy.enemyAbillity2 = rand.enemyAbillity2
-    enemy.enemyAbillity3 = rand.enemyAbillity3
-    enemy.enemyAbillity4 = rand.enemyAbillity4
+    enemy.exp = rand.exp;
+    enemy.enemyAbillity1 = rand.enemyAbillity1;
+    enemy.enemyAbillity2 = rand.enemyAbillity2;
+    enemy.enemyAbillity3 = rand.enemyAbillity3;
+    enemy.enemyAbillity4 = rand.enemyAbillity4;
 
      enemysHp = enemy.hp;
 }; //list of monsters , save enemy as a random monster with given stats
@@ -530,6 +535,8 @@ let attackEnable = () => {
   }
 };
 let thePlayerHaveDied = () => {
+
+  game_over_sound.play();
   document.getElementById('player-hp').innerText =  player.name +" "+ "0" +" Hp";
   $('#verticalMenu').append(`<li>You are dead! GAME OVER! </li>`)
 } //enables attack buttons
