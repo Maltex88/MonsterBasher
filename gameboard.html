@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
+    <title>Create a character and play my liege!</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-auth.js"></script>
+
+    <script src=" https://code.jquery.com/jquery-3.3.1.js"> </script>
+    <script src="fight.js"> </script>
+    <link rel="stylesheet" href="playBord.css">
+</head>
+<body>
+<audio id="spider-attack-sound">
+    <source src="Sound/zovpss03.wav">
+</audio>
+ <audio autoplay>
+<source src="Sound/Elwynn Forest-Music.mp3">
+</audio>
+<audio id="warriorSound">
+    <source src="Sound/Medieval War Drums.mp3" >
+</audio>
+ <audio id="game-over-sound">
+     <source src="Sound/superMarioBros-gameOver.mp3" >
+ </audio>
+ <audio id="sword-attack-sound">
+     <source src="Sound/deploy1.wav" >
+ </audio>
+ <audio id="slash-attack-sound">
+     <source src="Sound/2688.mp3" >
+ </audio>
+<!-- This section is for character name -->
+    <div id="charCreateAndBattle">
+
+        <div id="charactersNameMeny">
+          <div class="logo">Monster Bacher</Div>
+            <input type="text" placeholder="Select your character name" id="inputName"/>
+            <button id="createCharacter">Create Character</button>
+
+              <div class="menyButtonHolder">
+                  <button id="btn-saved-char">Play as saved character</button>
+                  <button  onclick="mainApp.logout();">logout</button>
+                  </div>
+              </div>
+        <!-- This section is for character name -->
+
+        <!-- This part is diplay during the picking face --------------->
+        <div id="charactersclassMeny" hidden="true">
+            <h2 id="selectedName"></h2>
+
+            <div class="showTheClasses">
+                <div class="knightDivShow"> <img src="picture/knight_idle.gif"> </div>
+                <div class="ozzDivShow"><img src="picture/ozz.gif" class="ozzImgShow"> </div>
+                <div class="hunterDivShow"><img src="picture/Hunter.gif" class="hunterImgShow"></div>
+            </div>
+            <!-- And here are the button that are use for pick a hero ----------->
+          <div class="selectClassButtonRaper">
+            <button id="selectCharacterClassWarrior">Warrior</button>
+            <button id="selectCharacterClassMage">Mage</button>
+            <button id="selectCharacterClassArcher">Archer</button>
+          </div>
+            <div id="selectedClass"></div>
+            <!-- This section is for The battle -->
+            <div id="TownOrFight">
+            <button id="startFight" hidden="true" ></button>
+            <button id="goToTown" hidden="true" >Go to town</button>
+            </div>
+        </div>
+
+
+        <!-- Kamphols kod, kaos! -->
+
+
+        <div id="contanierHidden" hidden="true">
+            <div class="faceOff">
+                <div id="player">
+                    <img id="playerImg">
+                </div>
+                <div id="enermy">
+                    <img id="enermyImg">
+                    <div class="enemyHPBar">  <span id="enemy-hp"></span> </div>
+                </div>
+            </div>
+
+                <div class="playerHub">
+
+                  <div class="spellTap">
+
+                      <button id="attack2"></button>
+                      <button id="attack1"></button>
+                      <button id="items"></button>
+                      <button id="attack3"></button>
+
+              <!-- Henriks kod för att placera om knappar på snyggt sätt när funktioner körs -->
+                    <!-- when combat ends -->
+                      <button id="newFight" hidden="true">Fight more monsters!</button>
+                      <button id="toTownFromBattle" hidden= true>Back to town!</button>
+                      <button  id="log-out-btn" hidden="true">Log Out</button>
+                      <button  id="save-game-btn" hidden="true">Save Game</button>
+
+                      <!-- when combat ends -->
+                      <button id="inventoryHp">Hp Potion</button>
+                      <button id="inventoryMana">Mana Potion</button>
+                      <button id="Back">Back</button>
+                      <button id="inventory5">Use item</button>
+                    <!-- Henriks kod för att placera om knappar på snyggt sätt när funktioner körs -->
+                </div>
+                <div id="playerName">
+       <span id="player-hp"></span>
+       <p></p>
+     </div>
+     <div id="verticalMenu">
+
+   </div>
+     <h2 id="msgToPlayeradvancing"></h2>
+
+       <!-- <button id="newFight" hidden="true">Fight more monsters!</button> -->
+
+        <!-- Här slutar kamphols kod-->
+    <!-- Denna div gör att man kan display hidden på hela den första koden och ta display hidden false på koden nedan för att få fram
+            playerhubben-->
+
+    <!-- Go to town -->
+
+              </div>
+     </div>
+</div>
+        <div id="playerNav" hidden="true">
+            <div id="playerHubNav">
+                <button id="exitButton">Game Meny</button>
+                <div id="playerHubNavBox1">
+                    <button id="fromTownToBattle">Battle</button>
+                    <button>Shop</button>
+                </div>
+                <div id="playerHubNavBox2">
+                    <button>Highscores</button>
+                    <button>Help</button>
+                    <button>Contact</button>
+                    <button>Exit</button>
+                    <p> © Henrik, Kamphol, Ibra</p>
+                </div>
+            </div>
+
+            <div id="playerHubMain">
+                <h2 class="characterBioName" id="characterBioName"></h2>
+                <div id="playerHubMainBox1">
+                    <div id="characterPortrait"></div>
+                    <div>
+                        <h3 id="lvl"></h3>
+                        <h3 id="class"></h3>
+                        <h3 id="monstersKilled">0</h3>
+                        <h3 >More:</h3>
+                        <h3>Content:</h3>
+                        <h3>Needed:</h3>
+                    </div>
+                </div>
+                <div id="playerHubMainBox2">
+                </div>
+            </div>
+            <div id="playerHubInventoryBox">
+                <h2>Character Equipment</h2>
+                <div id="playerHubInventoryBox1">
+                    <p>paragraf</p>
+                    <p>paragraf</p>
+                    <p>paragraf</p>
+                </div>
+                <div id="playerHubInventoryBox2">
+                    <p>playerHubInventoryBox1</p>
+                </div>
+                <div id="playerHubInventoryBox3">
+                    <p>playerHubInventoryBox2</p>
+                </div>
+            </div>
+            </div>
+<script src="fireBase.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
